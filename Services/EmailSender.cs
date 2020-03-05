@@ -12,6 +12,8 @@ namespace WaveCloud.Services
 	public class EmailSender : IEmailSender
 	{
 		private readonly ILogger<EmailSender> _logger;
+		private const string senderEmail = "default_user_name";
+		private const string password = "default_password";
 		public EmailSender(ILogger<EmailSender> logger)
 		{
 			_logger = logger;
@@ -21,7 +23,7 @@ namespace WaveCloud.Services
 			var mimeMessage = new MimeMessage();
 			mimeMessage.From.Add(new MailboxAddress(
 				"Contact",
-				"nchukumah@infomall.ng"
+				senderEmail
 			));
 			mimeMessage.Subject = !string.IsNullOrEmpty(subject) ? subject : "StudyMATE";
 			mimeMessage.Cc.Add(new MailboxAddress(email));
@@ -34,7 +36,7 @@ namespace WaveCloud.Services
 			using var client = new SmtpClient();
 			client.Connect("infomall.ng", 25, SecureSocketOptions.None);
 			client.AuthenticationMechanisms.Remove("XOAUTH2");
-			client.Authenticate("nchukumah@infomall.ng", "osasere1994$");
+			client.Authenticate(senderEmail, password);
 			await client.SendAsync(mimeMessage);
 			_logger.LogInformation("message sent successfully...");
 			await client.DisconnectAsync(true);
@@ -46,7 +48,7 @@ namespace WaveCloud.Services
 			var mimeMessage = new MimeMessage();
 			mimeMessage.From.Add(new MailboxAddress(
 				"Contact",
-                "contact@infomall.ng"
+                senderEmail
             ));
 			
 			foreach (string email in emails)
@@ -63,7 +65,7 @@ namespace WaveCloud.Services
 			using var client = new SmtpClient();
 			client.Connect("infomall.ng", 25, SecureSocketOptions.None);
 			client.AuthenticationMechanisms.Remove("XOAUTH2");
-			client.Authenticate("contact@infomall.ng", "InfoMall01");
+			client.Authenticate(senderEmail, password);
 			await client.SendAsync(mimeMessage);
 			_logger.LogInformation("message sent successfully...");
 			await client.DisconnectAsync(true);
