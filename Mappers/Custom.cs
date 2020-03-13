@@ -10,6 +10,8 @@ namespace WaveCloud.Mappers
         {
             CreateMap<ApplicationUser, RegisterViewModel>()
                 .ReverseMap();
+            CreateMap<ApplicationUser, UserViewModel>()
+                .ReverseMap();
         }
     }
 }

@@ -80,6 +80,9 @@ namespace WaveCloud.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 

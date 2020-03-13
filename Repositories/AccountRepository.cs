@@ -30,7 +30,7 @@ namespace WaveCloud.Repository
         public async ValueTask<(string, string)> LoginUser(LoginViewModel model)
         {
             var loginPassword = model.Password;
-            var user = await _ctx.Users.Where(x => x.Email.Equals(model.Email, StringComparison.InvariantCultureIgnoreCase))
+            var user = await _ctx.Users.Where(x => x.Email.ToLower() == model.Email.ToLower())
                                                 .FirstOrDefaultAsync();
             if(user == null) { return (null, "no such user in the database"); }
             
@@ -46,7 +46,7 @@ namespace WaveCloud.Repository
         {
             if(model.Password == model.ConfirmPassword)
             {
-                bool hasAccount = await _ctx.Users.AnyAsync(u => u.Email.Equals(model.Email, StringComparison.OrdinalIgnoreCase));
+                bool hasAccount = await _ctx.Users.AnyAsync(u => u.Email.ToLower() == model.Email.ToLower());
                 if (hasAccount) { return (null, "user already exists"); }
 
                 string passwordHash = Hash.GetHashedValue(model.Password);
@@ -97,7 +97,7 @@ namespace WaveCloud.Repository
         public async ValueTask<ApplicationUser> GetUserById(string id) => await _ctx.Users.FindAsync(id);
         public async ValueTask<ApplicationUser> GetUserByEmail(string email)
         {
-            return await _ctx.Users.Where(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)).FirstAsync();
+            return await _ctx.Users.Where(u => u.Email.ToLower() == email.ToLower()).FirstAsync();
         }
     }
 }

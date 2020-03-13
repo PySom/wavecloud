@@ -232,3 +232,5 @@ _Pvt_Extensions
 .fake/
 Properties/
 appsettings.json/
+Migrations/
+wwwroot/

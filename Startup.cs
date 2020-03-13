@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WaveCloud.Data;
 using WaveCloud.Models;
+using WaveCloud.Repository;
 using WaveCloud.Repository.Generics;
 using WaveCloud.Services;
 
@@ -54,6 +55,9 @@ namespace WaveCloud
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
             services.AddAutoMapper(typeof(Startup));
+            services.AddTransient<IModelManager<ApplicationUser>, ModelManager<ApplicationUser>>();
+            services.AddTransient<AccountRepository>();
+            services.AddTransient<AuthRepository>();
             services.AddTransient<IModelManager<Beat>, ModelManager<Beat>>();
             services.AddTransient<IModelManager<Cart>, ModelManager<Cart>>();
             services.AddTransient<IModelManager<Customer>, ModelManager<Customer>>();
