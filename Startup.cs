@@ -63,6 +63,7 @@ namespace WaveCloud
             services.AddTransient<IModelManager<Customer>, ModelManager<Customer>>();
             services.AddTransient<IModelManager<MusicFrequency>, ModelManager<MusicFrequency>>();
             services.AddTransient<IModelManager<Rating>, ModelManager<Rating>>();
+            services.AddTransient<IModelManager<Genre>, ModelManager<Genre>>();
             services.AddTransient<IModelManager<Studio>, ModelManager<Studio>>();
             services.AddTransient<IImageService, ImageService>();
 

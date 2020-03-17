@@ -22,18 +22,45 @@ namespace WaveCloud.Controllers
         }
 
         [HttpGet]
-        public async ValueTask<IActionResult> Get()
+        public async ValueTask<IActionResult> Get([FromQuery]Emotion emotion = Emotion.None, int genreId = 0)
         {
-            ICollection<Beat> options = await _repo
+            if(emotion == Emotion.None){
+                ICollection<Beat> options = await _repo
                                                 .Item()
                                                 .ToListAsync();
-            return Ok(options);
-
+                return Ok(options);
+            }
+            else{
+                if(genreId == 0){
+                    ICollection<Beat> options = await _repo
+                                                .Item()
+                                                .Where(e => e.Emotion == emotion)
+                                                .ToListAsync();
+                    return Ok(options);
+                }
+                else{
+                    ICollection<Beat> options = await _repo
+                                                .Item()
+                                                .Where(e => e.Emotion == emotion && e.GenreId == genreId)
+                                                .ToListAsync();
+                    return Ok(options);
+                }
+                
+            }
         }
+         
 
         [HttpGet("{id:int}")]
-        public async ValueTask<IActionResult> Get(int id)
+        public async ValueTask<IActionResult> Get(int id, bool parentId = false)
         {
+            if (parentId){
+                var data = await _repo
+                                .Item()
+                                .Where(c => c.GenreId == id)
+                                .Include(c => c.Ratings)
+                                .ToListAsync();
+                return Ok(data);
+            }
             Beat model = await _repo
                                 .Item()
                                 .Where(c => c.Id == id)
@@ -46,20 +73,7 @@ namespace WaveCloud.Controllers
             return NotFound();
         }
 
-        [HttpGet("{emotion:Emotion}")]
-        public async ValueTask<IActionResult> Get(Emotion emotion)
-        {
-            Beat model = await _repo
-                                .Item()
-                                .Where(c => c.Emotion == emotion)
-                                .Include(c => c.Ratings)
-                                .FirstOrDefaultAsync();
-            if (model != null)
-            {
-                return Ok(model);
-            }
-            return NotFound();
-        }
+        
 
         [HttpPost]
         public async ValueTask<IActionResult> Post([FromBody] Beat model)

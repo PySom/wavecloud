@@ -11,6 +11,7 @@ namespace WaveCloud.Models
         {
             IsVisible = true;
             DateAdded = DateTime.Now;
+            Emotion = Emotion.None;
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,8 +26,12 @@ namespace WaveCloud.Models
         public DateTime DateDeleted { get; set; }
         public bool IsVisible { get; set; }
         public ICollection<Rating> Ratings { get; set; }
+        
+        [ForeignKey("GenreId")]
+        public Genre Genre { get; set; }
+         public int GenreId { get; set; }
 
     }
 
-    public enum Emotion : byte { Happy, Hipnotic, Calm, Sad}
+    public enum Emotion : byte { None, Happy, Hipnotic, Calm, Sad}
 }

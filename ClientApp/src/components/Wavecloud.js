@@ -5,231 +5,6 @@ import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import Audiomac from './Audiomac';
 import axios from 'axios';
 
-const data = [
-    {
-      userId: "1",
-      title: "Love",
-      image: "images/m1.png",
-      star: "images/star.svg",
-      amount: "$112",
-      music: "music/music.mp3"
-    },
-    {
-        userId: "2",
-        title: "hate",
-        image: "images/m2.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "3",
-        title: "Love",
-        image: "images/m3.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "4",
-        title: "hate",
-        image: "images/m4.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "5",
-        title: "love",
-        image: "images/m1.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "6",
-        title: "hate",
-        image: "images/m2.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "7",
-        title: "love",
-        image: "images/m3.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-      {
-        userId: "8",
-        title: "hate",
-        image: "images/m4.png",
-        star: "images/star.svg",
-        amount: "$112",
-        music: "music/music.mp3"
-      },
-  ];
-
-  console.log("data", data)
-
-
-const categories = [
-  {
-    id: 1,
-    name:"Hip Hop/ Trap",
-    cat: [
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-    ] 
-  },
-  {
-    id: 2,
-    name: "Afro Beat",
-    cat: [
-      {
-        image: "images/m4.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m1.png",
-      },     
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-    ] 
-  },
-
-  {
-    id: 3,
-    name: "House",
-    cat: [
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-    ] 
-  },
-  {
-    id: 4,
-    name: "R & B",
-    cat: [
-      {
-        image: "images/m4.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m1.png",
-      },     
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },    
-    ] 
-  },
-
-  {
-    id: 5,
-    name: "EDM/ Electronic",
-    cat: [
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-      {
-        image: "images/m1.png",
-      },
-      {
-        image: "images/m2.png",
-      },
-      {
-        image: "images/m3.png",
-      },
-      {
-        image: "images/m4.png",
-      },     
-    ] 
-  }
-];
-
 const buttonData = [
   {
     id: 1,
@@ -257,20 +32,29 @@ const buttonData = [
 
 export default function Wavecloud() {
   const [beat, setBeat]= useState()
-  const [beatCategory, setBeatCategory] = useState(categories)
+  const [beatCategory, setBeatCategory] = useState([])
   const [filter, showFilter] = useState()
   const [audio, setAudio] = useState()
   const [pic, setPic] = useState()
   const [beatData, setBeatData] = useState([])
+  const [uploadData, setUploadData] = useState([])
   const [beatSet, setBeatSet] = useState(false)
 
   const beatStore = () => {
     document.getElementById("store").style.display = "none";
     document.getElementById("find").style.display = "none";
      setBeat(true)
+     axios.get('/api/genres')
+    .then(response => {
+        console.log('genres',response)
+        setBeatCategory(() => response.data)
+        //console.log(response)
+    })
+    .catch(err => console.log(err))
   }
 
   useEffect(() => {
+    console.log("changing times")
     if(!beatData.length){
       setBeatSet(() => true)
     }
@@ -279,20 +63,26 @@ export default function Wavecloud() {
     .then(response => {
         console.log('beatdata',response)
         setBeatData(() => response.data)
-        //console.log(response)
+        const newupload = response.data.filter(d => (Date.now() - new Date(d.dateAdded))/(1000 * 60 * 60 * 24) <= 2 )
+       console.log("new", newupload)
+       setUploadData(() => newupload)
     })
     .catch(err => console.log(err))
   }, [beatSet])
 
 
 
-
   const genre = (id) => {
-    const data = categories.filter(category => category.id === id,
-       showFilter(true)
-       );
-    console.log(data)
-    setBeatCategory(() => data);
+    axios.get('/api/beats/'+id+"?parentId=true")
+    .then(response => {
+        console.log('beatdata',response)
+        setBeatData(() => response.data)
+        showFilter(true)
+        setBeatCategory(() => beatCategory.filter(c => c.id === id))
+        //console.log(response)
+    })
+    .catch(err => console.log(err))
+    
   }
 
   const [decision, setDecision] = useState();
@@ -307,6 +97,17 @@ export default function Wavecloud() {
     setDecision(false);
   };
 
+  const emotionChange = (id) => {
+    console.log("beat cat", beatCategory[0].id)
+    axios.get('/api/beats?emotion='+id+'&genreId='+beatCategory[0].id)
+    .then(response => {
+        console.log('emotion data',response)
+        setBeatData(() => response.data)
+        setBeatCategory(() => beatCategory.filter(c => c.id ))
+        //console.log(response)
+    })
+    .catch(err => console.log(err))
+  }
 
     return (
      
@@ -344,7 +145,7 @@ export default function Wavecloud() {
                     <div className="d-inline">
                       {buttonData.map((button) => (
                      
-                      <button className={filter ? "filter  instrumental-button" : "filter-none"} style={{ backgroundColor: button.color, border:"none", color:"#fff"}}>
+                      <button onClick={() => emotionChange(button.id)} className={filter ? "filter  instrumental-button" : "filter-none"} style={{ backgroundColor: button.color, border:"none", color:"#fff"}}>
                         {button.name}
                       </button>
                   
@@ -378,8 +179,7 @@ export default function Wavecloud() {
             
                 
 
-            {beatCategory.length > 1 ?
-              <>
+
               <div className="contain">
                 <div className="top-padding">
                    <OwlCarousel
@@ -390,7 +190,6 @@ export default function Wavecloud() {
                      loop
                      >
                {beatData.map((bd) => {
-                 console.log("inside beat data", bd)
                  return (
                     
                     <div className="item item-carousel">                         
@@ -425,7 +224,7 @@ export default function Wavecloud() {
                      dots
                      loop
                      >
-               {beatData.map((bd) => (
+               {uploadData.map((bd) => (
                     
                     <div className="item item-carousel">                         
                         <div className="card widthy">
@@ -448,35 +247,6 @@ export default function Wavecloud() {
                  </div>
             
          
-              </>
-              : <div className="container">
-              <div className="top-padding">
-                 <OwlCarousel
-                   items="4"
-                   className="owl-theme"
-                   autoplay
-                   dots
-                   loop
-                   >
-             {categories[0].cat.map((category) => (
-                  
-                  <div className="item item-carousel">                         
-                      <div className="card widthy">
-                          <div>
-                            <img className="imaging" src={category.image}/>
-                            <img onClick={handleShow} className="cat-it" src="images/play.png"></img>   
-                          </div>
-                      </div>
-                </div>
-       
-  
-             ))}
-               </OwlCarousel>
-            
-               </div>
-              
-            </div>
-            }
                
             </div>
         </div>

@@ -101,6 +101,9 @@ namespace WaveCloud.Migrations
                     b.Property<byte>("Emotion")
                         .HasColumnType("tinyint");
 
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -108,6 +111,8 @@ namespace WaveCloud.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GenreId");
 
                     b.ToTable("Beats");
                 });
@@ -184,6 +189,36 @@ namespace WaveCloud.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("WaveCloud.Models.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genre");
                 });
 
             modelBuilder.Entity("WaveCloud.Models.MusicFrequency", b =>
@@ -289,6 +324,15 @@ namespace WaveCloud.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Studios");
+                });
+
+            modelBuilder.Entity("WaveCloud.Models.Beat", b =>
+                {
+                    b.HasOne("WaveCloud.Models.Genre", "Genre")
+                        .WithMany("Beats")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("WaveCloud.Models.Cart", b =>

@@ -16,13 +16,20 @@ import Footer from './Footer';
           image:'',
           music: "",
           amount: '',
+          genre: '',
+          genredescription: '',
+          genreCollection: [],
           success: false,
           editable: [],
           editAmount: 0,
           data: [],
-          beats: []
+          beats: [],
+          genres: [],
+          genreId: 0,
+          emotion: 0
         }
-
+    this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.handleGenreDescriptionChange = this.handleGenreDescriptionChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleDescriptionChange =  this.handleDescriptionChange.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
@@ -30,15 +37,26 @@ import Footer from './Footer';
     this.handleContentUpload = this.handleContentUpload.bind(this);
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.chooseGenre = this.chooseGenre.bind(this);
+    this.submitGenre = this.submitGenre.bind(this)
 
     }
 
 
  
 
+handleGenreChange(e) {
+        this.setState({...this.state, genre: e.target.value})
+    }
+
+handleGenreDescriptionChange(e) {
+        this.setState({...this.state, genredescription: e.target.value})
+    }
+    
+    
 handleDescriptionChange(e) {
     this.setState({...this.state, description: e.target.value})
-    }
+}
 
 
 
@@ -86,10 +104,35 @@ handleContentUpload(e) {
     this.setState({...this.state, amount: e.target.value})
     }
 
+        
+        
+        
+    
+    
 
 
 
 
+
+  submitGenre(e) {
+    e.preventDefault();
+    console.log("self",this)
+    axios.post('/api/genres', {
+      Name: this.state.genre, 
+      Description: this.state.genredescription,
+    })
+
+    .then(response => {
+        alert("created")
+        console.log('collection', response)
+       this.setState({...this.state, genreCollection: response.data});
+    
+    })
+
+    .catch(err => console.log(err))
+   
+    
+  }
 
   submitForm(e) {
     e.preventDefault();
@@ -97,7 +140,9 @@ handleContentUpload(e) {
       Content: this.state.content, 
       Image: this.state.image, 
       Amount: this.state.amount,
-      Description: this.state.description
+      Description: this.state.description,
+      genreId: this.state.genreId,
+      emotion: this.state.emotion
     })
 
     .then(response => {
@@ -118,6 +163,14 @@ handleContentUpload(e) {
         .then(response => {
             console.log('response',response)
             this.setState({...this.state, beats: response.data})
+            //console.log(response)
+        })
+        .catch(err => console.log(err))
+
+    axios.get('/api/genres')
+        .then(response => {
+            console.log('response',response)
+            this.setState({...this.state, genres: response.data})
             //console.log(response)
         })
         .catch(err => console.log(err))
@@ -192,8 +245,18 @@ deleteBeat(idx){
         })
         .catch(err => console.log(err))
 }
+
+chooseGenre(value) {
+    console.log("genre id",value)
+    this.setState({genreId: value})
+}
+
+chooseEmotion(value) {
+    console.log("emotion id",value)
+    this.setState({emotion: value})
+}
     render() {
-        console.log(this.state)
+        console.log('state',this.state)
         console.log(this.state.description)
         console.log(this.state.amount)
         console.log("data",this.state.beats)
@@ -222,6 +285,30 @@ deleteBeat(idx){
                 </div>
 
                 <div className="container">
+                <div className="row pad-contact">
+                        <div className="col-md-12">
+                        <div className="card" style={{ border:"none"}}>
+                        <div className="card-body my-card">
+                            <h2 className="send">Create Genre</h2>
+                            <div className="d-flex">
+                                <div style={{width:"100%"}}>
+                                    <h3 className="details">Name</h3>
+                                    <input  className="input-text form-control" type="text" value={this.state.genre} onChange={this.handleGenreChange}/>
+                                </div>
+                                <div style={{width:"100%"}}>
+                                    <h3 className="details">Description</h3>
+                                    <input  className="input-text form-control" type="text" value={this.state.genredescription} onChange={this.handleGenreDescriptionChange}/>
+                                </div>
+
+                            </div>
+                           <div className="d-flex">
+                            <button className="blog-butt center-button" onClick={this.submitGenre} style={{marginLeft: "16px"}}>Post</button> 
+                            </div> 
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                 
                     <div className="row pad-contact">
                         <div className="col-md-12">
                         <div className="card" style={{ border:"none"}}>
@@ -250,6 +337,34 @@ deleteBeat(idx){
                                 <input placeholder="" className="input-text form-control" value={this.state.amount} onChange={this.handleAmountChange} required/>
                                 </div>
                             </div>
+                            <div className="d-flex">
+                            <div style={{width:"100%"}}>
+                           
+                                <select value={this.state.genreId} onChange={({target: {value}}) => this.chooseGenre(value)}>
+                                    <option value={0}>-- select a genre --</option>
+                                    {this.state.genres.map(genre => (
+                                        <option key={genre.id} value={genre.id}>{genre.name}</option>
+                                    ))}
+                                </select>
+                            
+                              
+                            </div>
+
+                       
+                            <div style={{width:"100%"}}>
+                                <select value={this.state.emotion} onChange={({target: {value}}) => this.chooseEmotion(value)}>
+                                    <option value={0}>-- select beat emotion --</option>
+                                    <option value={1}>Happy</option>
+                                    <option value={2}>Hypnotic</option>
+                                    <option value={3}>Calm</option>
+                                    <option value={4}>Sad</option>
+                                </select>
+                            </div>
+
+                      
+                         
+                            </div>
+
                             
                             <div className="d-flex">
                             <button className="blog-butt center-button" onClick={this.submitForm} style={{marginLeft: "16px"}}>Post</button> 
@@ -267,7 +382,6 @@ deleteBeat(idx){
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Edit Details</th>
-
                         </tr>
                         {this.state.beats.length && this.state.beats.map((beat, idx) => (
                                <tr>
@@ -294,6 +408,7 @@ deleteBeat(idx){
                                     value={this.state.beats[idx].amount} 
                                     onChange={({target : {value}}) => this.onAmtChange(value, idx)}/>
                                 </td>
+                                
                                <td> <button class="btn-style edit-upload"  type="button" onClick={(e) => this.editBeat(idx)}>Edit</button>
                                <button class="btn-style edit-upload"  type="button" onClick={(e) => this.deleteBeat(idx)}>Delete</button>
                                </td>
