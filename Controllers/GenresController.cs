@@ -1,21 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using WaveCloud.Repository.Generics;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using WaveCloud.Models;
+using WaveCloud.Repository.Generics;
 
 namespace WaveCloud.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class BeatsController : ControllerBase
+    public class GenresController : ControllerBase
     {
-        private readonly IModelManager<Beat> _repo;
+        private readonly IModelManager<Genre> _repo;
         private readonly IMapper _mapper;
-        public BeatsController(IModelManager<Beat> repo, IMapper mapper)
+        public GenresController(IModelManager<Genre> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -24,7 +24,7 @@ namespace WaveCloud.Controllers
         [HttpGet]
         public async ValueTask<IActionResult> Get()
         {
-            ICollection<Beat> options = await _repo
+            ICollection<Genre> options = await _repo
                                                 .Item()
                                                 .ToListAsync();
             return Ok(options);
@@ -34,25 +34,10 @@ namespace WaveCloud.Controllers
         [HttpGet("{id:int}")]
         public async ValueTask<IActionResult> Get(int id)
         {
-            Beat model = await _repo
+            Genre model = await _repo
                                 .Item()
                                 .Where(c => c.Id == id)
-                                .Include(c => c.Ratings)
-                                .FirstOrDefaultAsync();
-            if (model != null)
-            {
-                return Ok(model);
-            }
-            return NotFound();
-        }
-
-        [HttpGet("{emotion:Emotion}")]
-        public async ValueTask<IActionResult> Get(Emotion emotion)
-        {
-            Beat model = await _repo
-                                .Item()
-                                .Where(c => c.Emotion == emotion)
-                                .Include(c => c.Ratings)
+                                .Include(g => g.Beats)
                                 .FirstOrDefaultAsync();
             if (model != null)
             {
@@ -62,12 +47,12 @@ namespace WaveCloud.Controllers
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> Post([FromBody] Beat model)
+        public async ValueTask<IActionResult> Post([FromBody] Genre model)
         {
             if (ModelState.IsValid)
             {
-                (bool succeeded, Beat beat, string error) = await _repo.Add(model);
-                if (succeeded) return Ok(beat);
+                (bool succeeded, Genre genre, string error) = await _repo.Add(model);
+                if (succeeded) return Ok(genre);
                 return BadRequest(new { Message = error });
             }
             return BadRequest(new { Errors = ModelState.Values.SelectMany(e => e.Errors).ToList() });
@@ -75,12 +60,12 @@ namespace WaveCloud.Controllers
 
 
         [HttpPut]
-        public async ValueTask<IActionResult> Put([FromBody] Beat model)
+        public async ValueTask<IActionResult> Put([FromBody] Genre model)
         {
             if (ModelState.IsValid)
             {
-                (bool succeeded, Beat beat, string error) = await _repo.Update(model);
-                if (succeeded) return Ok(beat);
+                (bool succeeded, Genre genre, string error) = await _repo.Update(model);
+                if (succeeded) return Ok(genre);
                 return BadRequest(new { Message = error });
             }
             return BadRequest(new { Errors = ModelState.Values.SelectMany(e => e.Errors).ToList() });
@@ -89,7 +74,7 @@ namespace WaveCloud.Controllers
         [HttpDelete("{id}")]
         public async ValueTask<IActionResult> Delete(int id)
         {
-            Beat option = new Beat { Id = id };
+            Genre option = new Genre { Id = id };
             string message;
             try
             {
@@ -104,6 +89,6 @@ namespace WaveCloud.Controllers
             return NotFound(new { Message = message });
         }
 
-        private bool IsVisibleQuery(Beat beat) => beat.IsVisible;
+        //private bool IsVisibleQuery(Beat beat) => beat.IsVisible;
     }
 }
