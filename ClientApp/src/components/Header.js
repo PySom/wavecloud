@@ -30,7 +30,7 @@ const authentication = () => {
       <header>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<a className="navbar-brand" >
-          <img src="images/WAVCLOUD.png" className="logo img-fluid" alt=""/>
+				<Link to="/"><img src="images/WAVCLOUD.png" className="logo img-fluid" alt="" /> </Link>      
 				</a>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-toggle" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">

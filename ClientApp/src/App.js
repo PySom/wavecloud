@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import Login from './components/Login';
-import Body from './components/Body';
 import { Route } from 'react-router';
 import { Switch } from 'react-router-dom';
 import About from './components/About';
+import Admin from './components/Admin';
+import Body from './components/Body';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
-import Studiofind from './components/Studiofind';
+import Login from './components/Login';
+import Profile from './components/Profile';
 import Register from './components/Register'
-import Admin from './components/Admin';
+import Studiofind from './components/Studiofind';
+
+
+
 
 
 
@@ -31,9 +35,11 @@ function App() {
       <Route exact path='/admin' component={Admin}/>
       <Route exact path='/blog' component={Blog} />
       <Route exact path='/contact' component={Contact} />
-      <Route exact path='/studiofind' component={Studiofind}/>
       <Route exact path='/login' component={Login}/>
+      <Route exact path='/profile' component={Profile}/>
       <Route exact path='/register' component={Register}/>
+      <Route exact path='/studiofind' component={Studiofind}/>
+     
    </Switch>
    </>
   );

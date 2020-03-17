@@ -32,6 +32,7 @@ export default function Audio(props) {
 
     const audioCanPlay = (e) => {
         setVolume(() => true)
+        setAudio(() => true)
     }
 
     const audioTimeUpdated = (e) => {
@@ -114,12 +115,13 @@ export default function Audio(props) {
            <audio 
                 onTimeUpdate={audioTimeUpdated}
                 onCanPlay={audioCanPlay}
+                src={'/'+props.music}
                 id="my-audio">
-              <source src="music/music.mp3" type="audio/mpeg"/>
+         
             </audio>
             
             <div id="controls" class="audio-bg">
-                <img src="images/smallpic.png" className="smallpic"/>
+                <img src={props.pic} className="smallpic"/>
                 <button onClick={rewindAudio} id="rw"><img src="images/left.png" className="leftright" alt="click to rewind the audio"/></button>
                 <button onClick={playAudio} id="play" style={{display: audio ? "block": "none"}}><img src="images/playbutton.png" className="pauseplay" alt="click to play the audio"/></button>
                 <button onClick={pauseAudio} id="pause" style={{display: !audio ? "block": "none"}}><img src="images/pausebutton.png" className="pauseplay" alt="click to pause the audio"/></button>

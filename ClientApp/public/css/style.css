@@ -2220,6 +2220,7 @@ color: #9F59BE;
 
 .smallpic {
     padding-right: 2% !important;
+    width: 5%;
 }
 
 
@@ -2654,5 +2655,16 @@ table {
     border-radius: 24px;
     padding-left: 15px;
   }
+
+  .collection {
+    padding-top: 3.5em !important;
+    padding-left: 1.5em !important;
+  }
   
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #61D038;
+}
  

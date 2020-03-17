@@ -23,7 +23,7 @@ export default class Dropdown extends Component {
             </button>
             <img  className="cart-resized" src="images/caret.png" style={{width:"3.2%"}}/>
            <div class="dropdown-content">
-           <Link to="/">Profile</Link>
+           <Link to="/profile">Profile</Link>
            <Link onClick={this.handleLogout} to="/">Log out</Link>
            </div>
            </div>

@@ -73,64 +73,7 @@ const data = [
   ];
 
   console.log("data", data)
-const upload = [
-{
-    userId: "1",
-    title: "Love",
-    image: "images/m1.png",
-    star: "images/star.svg",
-    amount: "$112",
-},
-{
-    userId: "2",
-    title: "hate",
-    image: "images/m2.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "3",
-    title: "Love",
-    image: "images/m3.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "4",
-    title: "hate",
-    image: "images/m4.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "5",
-    title: "love",
-    image: "images/m2.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "6",
-    title: "hate",
-    image: "images/m1.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "7",
-    title: "love",
-    image: "images/m4.png",
-    star: "images/star.svg",
-    amount: "$112",
-    },
-    {
-    userId: "8",
-    title: "hate",
-    image: "images/m3.png",
-    star: "images/star.svg",
-    amount: "$112"
-    },
-];
+
 
 const categories = [
   {
@@ -316,8 +259,10 @@ export default function Wavecloud() {
   const [beat, setBeat]= useState()
   const [beatCategory, setBeatCategory] = useState(categories)
   const [filter, showFilter] = useState()
-  const [audio, setAudio] = useState(data)
+  const [audio, setAudio] = useState()
+  const [pic, setPic] = useState()
   const [beatData, setBeatData] = useState([])
+  const [beatSet, setBeatSet] = useState(false)
 
   const beatStore = () => {
     document.getElementById("store").style.display = "none";
@@ -326,6 +271,9 @@ export default function Wavecloud() {
   }
 
   useEffect(() => {
+    if(!beatData.length){
+      setBeatSet(() => true)
+    }
     console.log("category", beatCategory)
     axios.get('/api/beats')
     .then(response => {
@@ -334,7 +282,7 @@ export default function Wavecloud() {
         //console.log(response)
     })
     .catch(err => console.log(err))
-  }, [])
+  }, [beatSet])
 
 
 
@@ -349,10 +297,10 @@ export default function Wavecloud() {
 
   const [decision, setDecision] = useState();
 
-  const handleShow = (music) => {
-   const showMusic = data.filter(datum => datum.music === music)
+  const handleShow = (music, pic) => {
     setDecision(true);
-    setAudio(() => showMusic);
+    setAudio(() => music);
+    setPic(() => pic);
   };
 
   const handleClose = () => {
@@ -423,7 +371,7 @@ export default function Wavecloud() {
                 
                     
                       <div className={decision ? "decision" : "decision-none"}>
-                           <Audiomac music={data.music} />
+                           <Audiomac music={audio} pic={pic}/>
                     </div>
                 
                    
@@ -449,7 +397,7 @@ export default function Wavecloud() {
                         <div className="card widthy">
                             <div>
                               <img className="imaging" src={bd.image}/>
-                              <img onClick={() => handleShow(bd.content)} className="play-it" src="images/play.png"></img>   
+                              <img onClick={() => handleShow(bd.content, bd.image)} className="play-it" src="images/play.png"></img>   
                             </div>
                             <div className="card-body">
                                <h2 className="title">{bd.description}</h2>                           
@@ -477,18 +425,18 @@ export default function Wavecloud() {
                      dots
                      loop
                      >
-               {upload.map((datum) => (
+               {beatData.map((bd) => (
                     
                     <div className="item item-carousel">                         
                         <div className="card widthy">
                         <div>
-                              <img className="imaging" src={datum.image}/>
-                              <img onClick={handleShow} className="play-it" src="images/play.png"></img>   
+                              <img className="imaging" src={bd.image}/>
+                              <img onClick={() => handleShow(bd.content, bd.image)} className="play-it" src="images/play.png"></img>
                             </div>
                             <div className="card-body">
-                               <h2 className="title">{datum.title}</h2>
-                               <img className="star-ish" src={datum.star}/>
-                               <p className="amount">{datum.amount}</p>
+                               <h2 className="title">{bd.description}</h2>                           
+                               <img className="star-ish" src="images/star.svg" />
+                              <p className="amount">${bd.amount}</p>
                             </div>
                         </div>
                   </div>
