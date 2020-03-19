@@ -412,6 +412,17 @@ nav.navbar.shrink .navbar-toggler {
     position: relative;
 }
 
+.main-banner-w3ls2 {
+    background: url(../images/bg2.png) no-repeat center;
+    height: 57vh;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    position: relative;
+}
+
 img.fashion-img {
     position: absolute;
     right: 218px;
@@ -1217,6 +1228,13 @@ button.contact-submit {
 }
 
 @media(max-width: 800px) {
+    .main-banner-w3ls {
+        height: 21vh !important;
+    }
+    .footer-up {
+        height: 15vh !important;
+    }
+
     h3.title-wthree span {
         font-size: 36px;
     }
@@ -1261,7 +1279,15 @@ button.contact-submit {
 }
 
 
-@media(max-width: 768px) {}
+@media(max-width: 768px) {
+    .main-banner-w3ls {
+        height: 21vh !important;
+    }
+    .footer-up {
+        height: 15vh !important;
+    }
+
+}
 
 @media(max-width: 736px) {
     .price-right {
@@ -2662,9 +2688,200 @@ table {
   }
   
   .circle {
-    width: 40px;
-    height: 40px;
+    width: 154px;
+    height: 154px;
     border-radius: 50%;
-    border: 2px solid #61D038;
+    
 }
+
+.pad-circle {
+    padding-top: 23px;
+    padding-left: 47px;
+}
+
+
+
+  
+.wrapper {
+    box-sizing: border-box;
+    height: 300px;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    position: absolute;
+    top: 50%;
+    width: 300px;
+  }
+  
+  .search-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    color: #fff;
+    box-sizing: border-box;
+    font-family: 'Arvo';
+    font-size: 18px;
+    height: 50px;
+    left: 12%;
+    margin: -25px 0 0 -100px;
+    padding: 10px 0px;
+    position: relative;
+    top: 66%;
+    width: 400px;
+    font-size: 22px;
+    text-align: center;
+    font-family: poppins;
+  }
+    .search-input:focus {
+      outline: none;    
+    }
  
+  
+   .search-inputt::-webkit-input-placeholder {
+    color: #fff;
+  }
+  
+  .search-input:focus::-webkit-input-placeholder {
+    color: #9f59be;
+  }
+  
+  .search-input:focus+.underline {
+    transform: scale(1);
+  }
+  
+  .underline {
+    background-color: #9f59be;
+    display: inline-block;
+    height: 2px;
+    left: -64px;
+    margin-top: -4px;
+    position: absolute;
+    top: 237px;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    width: 400px;
+  }
+
+  .up-studio {
+    padding-top: 68px;
+  }
+
+  .width-studio {
+    width: 336px;
+    height: 200px;
+  }
+
+  .studio-name {
+    font-size: 15px;
+  }
+
+  .studio-location {
+    font-size: 20px;
+    padding-top: 14px;
+  }
+
+  .studio-amount {
+    position: absolute;
+    font-size: 16px;
+    bottom: 0;
+  }
+
+  .studio-description {
+    padding-top: 11px;
+    font-size: 12px;
+  }
+
+  .spacing {
+    padding-bottom: 70px;
+  }
+
+  .main-studio {
+    padding-bottom: 35px;
+    color: #9f59be;
+  }
+
+  .arrow {
+    width: 32px;
+    position: absolute;
+    bottom: 80px;
+    cursor: pointer;
+  }
+
+  .banner-size {
+     position: absolute;
+    left: 29%;
+    bottom: 112px;
+  }
+
+  .banner-first {
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+  }
+
+  .banner-second{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+    padding-top: 9px;
+  }
+
+  .banner-p {
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    padding-top: 9px;
+  }
+
+  .edit {
+    padding-top: 51px;
+  }
+
+  .profile-update {
+    padding-left: 29px;
+    padding-left: 29px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .profile-edit {
+    font-size: 13px;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .button-image {
+    position: absolute;
+    right: 37px;
+    bottom: 103px;
+    cursor: pointer;
+    padding: 8px 17px;
+    border: none;
+    color: #fff !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #9F59BE;
+    background: #9F59BE;
+    border: 1px solid #9F59BE;
+    border-radius: 30px;
+    margin-right: 20px;
+    margin-top: 24px;
+  }
+
+  .button-image:focus {
+      outline:none
+  }
+
+  .display-none {
+      display: none;
+  }
+  .display-block {
+    display: block;
+}
+

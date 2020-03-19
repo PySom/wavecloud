@@ -20,6 +20,7 @@ namespace WaveCloud.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Image { get; set; }
+        public string Address { get; set; }
         public bool IsAdmin { get; set; }
         public string PasswordHash { get; set; }
         public string Code { get; set; }

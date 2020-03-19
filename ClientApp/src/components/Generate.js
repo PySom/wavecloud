@@ -4,16 +4,14 @@ import { Link } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
 
 
-export default class Login extends Component {
+export default class Generate extends Component {
     constructor(props) {
         super(props);
         this.state = { 
           email:'',
-          password: '',
           Authentication: false
         }
         this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.submitForm = this.submitForm.bind(this);
     
       }
@@ -25,32 +23,18 @@ export default class Login extends Component {
       
     }  
     
-    handlePasswordChange(e) {
-        this.setState({...this.state, password: e.target.value})
-    }
+
 
 
     submitForm(e) {
-        const data = {
-            Email: this.state.email,
-            Password: this.state.password,
-          }
-        
-        console.log(data)
         e.preventDefault();
-        axios.post('/api/account/login', data).then(response => {
-          localStorage.setItem('token', response.data.token)
-          localStorage.setItem('userdata', JSON.stringify(response.data))
-          localStorage.setItem('isAdmin', JSON.stringify(response.data.isAdmin))
-          let userdata = localStorage.getItem('userdata')
-           this.setState({...this.state, error:userdata, Authentication:true});
+        axios.post(`/api/account/generatecode?email=${this.state.email}`)
+        .then(response => {
+            console.log(response)
         })
     
         .catch(err => console.log(err))
-    
-       
-       
-        
+  
       }
 
       authentication() {
@@ -73,7 +57,7 @@ export default class Login extends Component {
             {auth ? <Redirect to = {{pathname: "/"}}/> : ( 
                   <div className="background-image">
                   <div className="d-inline  pad-login">
-                     <h3 className="login">Login</h3>
+                     <h3 className="login">Forgot Password</h3>
                      <div className="d-flex">
                                   <img className="login-right" src="images/loginfacebook.svg"/>
                                   <img className="login-right" src="images/logingoogle.svg"/>
@@ -91,17 +75,10 @@ export default class Login extends Component {
                           value={this.state.email} onChange={this.handleEmailChange} required
                           />
                       </div>
-      
-                      <div className="input-group d-inline ">
-                           <h3 className="input-box push-up">Password</h3>  
-                          <input className="input--style-3" type="password" id="inputPassword" name="password" 
-                          value={this.state.password} onChange={this.handlePasswordChange} required
-                          />
-                      </div>
                      <div className="d-flex">
                      <div className="resized">
-                        <Link to="/generate">
-                          <p className="forgot">Forgot Password</p>
+                        <Link to="/Login">
+                          <p className="forgot">Login</p>
                         </Link> 
                       </div>
                       <div className="resized-right">
@@ -111,7 +88,7 @@ export default class Login extends Component {
                      </div>
       
                      <div >
-                          <button className="login-button"  type="submit" > Login</button>
+                          <button className="login-button"  type="submit" > Submit</button>
                       </div>
                     
       

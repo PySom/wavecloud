@@ -78,7 +78,38 @@ namespace WaveCloud.Repository
             return adminEmails.Contains(email, StringComparer.OrdinalIgnoreCase);
         }
 
+        public async ValueTask<bool> ChangePassword(PatchKnownPasswordDTO patch)
+        {
+            ApplicationUser user = await GetUserById(patch.Id);
+            if(user != null)
+            {
+                string passwordHash = Hash.GetHashedValue(patch.OldPassword);
+                if(passwordHash == user.PasswordHash)
+                {
+                    string newHashedPassword = Hash.GetHashedValue(patch.NewPassword);
+                    user.PasswordHash = newHashedPassword;
+                    return await UpdateUser(user);
+                }
+            }
+            return false;
+        }
 
+        public async ValueTask<bool> ForgotPassword(PatchUnknownPasswordDTO patch)
+        {
+            ApplicationUser user = await GetUserByEmail(patch.Email);
+            if (user != null)
+            {
+                if (patch.NewPassword == patch.ConfirmNewPassword)
+                {
+                    string passwordHash = Hash.GetHashedValue(patch.NewPassword);
+                    user.PasswordHash = passwordHash;
+                    return await UpdateUser(user);
+                }
+                
+            }
+            return false;
+        }
+        
         public async ValueTask<bool> UpdateUser(ApplicationUser user)
         {
             try

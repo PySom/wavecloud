@@ -19,6 +19,7 @@ namespace WaveCloud.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public string Features { get; set; }
+        public string Image { get; set; }
         public bool InUse { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime DateModified { get; set; }

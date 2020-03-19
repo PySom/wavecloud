@@ -1,7 +1,54 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
 import { Link, Route } from 'react-router-dom';
 
+
+const data = [
+	{
+		name: "El corazon Studio",
+		location: "22a professor Kiumiu Akingbehin street Lekki phase one",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+		amount:" 20,000",
+		image:"images/Rectangle.png"
+
+	},
+	{
+		name: "Hitmix Studio",
+		location: "33b Adebayo Doherty Lekki phase one",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+		amount:" 300,000",
+		image:"images/Rectangle2.png"
+
+	},
+	{
+		name: "Mavin Studios",
+		location: "8b Ademulegun street isolo, lagos",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+		amount:" 50,000",
+		image:"images/Rectangle3.png"
+
+	}
+]
+
+
 export default function Studiofind() {
+	
+const [search, setSearch] = useState(data)
+const [searched, setSearched] = useState("");
+
+useEffect(() => {
+	if(searched){
+		setSearch(() => data.filter(c => c.name.toLowerCase().includes(searched.toLowerCase()) 
+								|| c.location.toLowerCase().includes(searched.toLowerCase())))
+	}
+	else setSearch(() => data)
+
+}, [searched])
+
+const searchStudio = ({target: {value}}) => {
+	setSearched(() => value)
+  }
+
+	console.log()
     return (
         <>
 	   <div class="main-banner-w3ls">
@@ -60,7 +107,10 @@ export default function Studiofind() {
 				<div className="banner-text-size-w3ls">
 					<p className="mt-3 mb-5 banner-para-wthree">
 						Studiofind</p>
-				
+						<div class="wrapper">
+							<input onChange={searchStudio} value={searched} class="input" className="search-input" placeholder="Search" type="text" />
+							<span class="underline"></span>
+						</div>
 				</div>
 				
 			</div>
@@ -68,47 +118,25 @@ export default function Studiofind() {
 		</div>
     
 
-<div className="container">
-    <div class="card" style={{marginTop: "40px", border:"none", marginBottom:"40px"}}>
-    <div class="card-body">
-    <div className="card-body my-card">
-                        <h2 className="studio-sound">Find a Studio nearby</h2>
-                        <div className="d-flex">
-                            <div className="higher-width">
-                                <h3 className="details">WHERE</h3>
-                               <input placeholder="" className="input-text form-control"/>
-                            </div>
-                    
+<div className="container up-studio" >
+	<h2 className="main-studio">Studios</h2>
+{search.map((bd) => (
+	 <div className="row spacing">
+	 <div className="col-md-4">
+      <img className="width-studio" src={bd.image}/>
+	 </div>
+	 <div className="col-md-8">
+        <h3 className="studio-name"> {bd.name}</h3>
+		<h1 className="studio-location">{bd.location}</h1>
+		<p className="studio-description">{bd.description}</p>
+        <h4 className="studio-amount">N{bd.amount}</h4>
+	 </div>
+	 
+ </div>
+	
+))}
 
-                        </div>
-                        <div className="d-flex">
-                         <div className="higher-width">
-                            <h3 className="details">CHECK-IN</h3>
-                            <input placeholder="" className="input-text form-control"/>
-                         </div> 
-                         <div className="higher-width">
-                            <h3 className="details">CHECK-OUT</h3>
-                            <input placeholder="" className="input-text form-control"/>
-                         </div>
-                        </div>
-                        <div className="d-flex">
-                         <div className="higher-width">
-                            <h3 className="details">ADULTS</h3>
-                            <input placeholder="" className="input-text form-control"/>
-                         </div> 
-                         <div className="higher-width">
-                            <h3 className="details">CHILDREN</h3>
-                            <input placeholder="" className="input-text form-control"/>
-                         </div>
-                        </div>
-                        <div className="d-flex">
-                        <button className="blog-butt center-button" style={{marginLeft: "16px"}}>SEARCH</button> 
-                        </div> 
-                    </div>
-                  
-    </div>
-    </div>
-</div>
+ </div>
 
 </>
      

@@ -38,7 +38,8 @@ import Footer from './Footer';
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.chooseGenre = this.chooseGenre.bind(this);
-    this.submitGenre = this.submitGenre.bind(this)
+    this.submitGenre = this.submitGenre.bind(this);
+    this.deleteBeat = this.deleteBeat.bind(this)
 
     }
 
@@ -236,8 +237,9 @@ editBeatUpload(idx) {
   }
 
 deleteBeat(idx){
-    const beatId = this.state.beats[idx].id
-    axios.delete(`/api/beats/${beatId}`, this.state.beats[idx])
+    const beatId = this.state.beats[idx]
+    console.log("beat id", beatId)
+    axios.delete(`/api/beats/${beatId.id}?genreId=${beatId.genreId}`)
         .then(() => {
             alert("deleted")
             this.setState({beats: this.state.beats.filter(beat => beat.id !== beatId)})
@@ -318,7 +320,7 @@ chooseEmotion(value) {
                                 <div style={{width:"100%"}}>
                                     <h3 className="details">Content</h3>
                                     <input  className="input-text form-control" type="file" id="content" name="content" onChange={this.handleContentChange}/>
-                                    <button class="btn-style content-upload"  type="button" onClick={this.handleContentUpload}>Upload</button>
+                                    <button className="btn-style content-upload"  type="button" onClick={this.handleContentUpload}>Upload</button>
                                 </div>
                                 <div style={{width:"100%"}}>
                                     <h3 className="details">Image</h3>

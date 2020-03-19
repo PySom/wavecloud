@@ -101,9 +101,9 @@ namespace WaveCloud.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async ValueTask<IActionResult> Delete(int id)
+        public async ValueTask<IActionResult> Delete(int id, int genreId)
         {
-            Beat option = new Beat { Id = id };
+            Beat option = new Beat { Id = id, GenreId = genreId};
             string message;
             try
             {
@@ -113,9 +113,9 @@ namespace WaveCloud.Controllers
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                message = ex.Message;
+                message = ex.Message + ex.InnerException.Message;
             }
-            return NotFound(new { Message = message });
+            return NotFound(new { Message = message});
         }
 
         private bool IsVisibleQuery(Beat beat) => beat.IsVisible;

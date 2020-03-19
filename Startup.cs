@@ -66,6 +66,7 @@ namespace WaveCloud
             services.AddTransient<IModelManager<Genre>, ModelManager<Genre>>();
             services.AddTransient<IModelManager<Studio>, ModelManager<Studio>>();
             services.AddTransient<IImageService, ImageService>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -93,7 +94,8 @@ namespace WaveCloud
             app.UseSpaStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -4,6 +4,7 @@ import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import Audiomac from './Audiomac';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const buttonData = [
   {
@@ -48,7 +49,6 @@ export default function Wavecloud() {
     .then(response => {
         console.log('genres',response)
         setBeatCategory(() => response.data)
-        //console.log(response)
     })
     .catch(err => console.log(err))
   }
@@ -164,11 +164,13 @@ export default function Wavecloud() {
                  </div>
                
           
-                 <button id="find" className="beatstore"><span>
-                    <img className="search-button" src="images/groupsearch.png" ></img>
-                      </span>Studiofind
-                    <img className="icon-drop" src="images/Polygon.png"></img>
-                 </button>
+                        <Link to="/studiofind">
+                        <button id="find" className="beatstore"><span>
+                              <img className="search-button" src="images/groupsearch.png" ></img>
+                                </span>Studiofind
+                              <img className="icon-drop" src="images/Polygon.png"></img>
+                          </button>
+                        </Link>  
                 
                     
                       <div className={decision ? "decision" : "decision-none"}>
@@ -212,9 +214,7 @@ export default function Wavecloud() {
                  </div>
          
               </div>
-        
-        
-                 <div className="container">
+                 <div className={uploadData === null ? "display-none" : "container display-block"}>
                      <div className="top-padding">
 				                <h3 className="uploaded">New Uploads</h3>
                           <OwlCarousel

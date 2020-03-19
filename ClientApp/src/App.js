@@ -10,6 +10,8 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register'
 import Studiofind from './components/Studiofind';
+import Generate from './components/Generate';
+import Forgot from './components/Forgot';
 
 
 
@@ -35,6 +37,8 @@ function App() {
       <Route exact path='/admin' component={Admin}/>
       <Route exact path='/blog' component={Blog} />
       <Route exact path='/contact' component={Contact} />
+      <Route exact path='/forgot' component={Forgot} />
+      <Route exact path='/generate' component={Generate} />
       <Route exact path='/login' component={Login}/>
       <Route exact path='/profile' component={Profile}/>
       <Route exact path='/register' component={Register}/>

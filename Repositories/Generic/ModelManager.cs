@@ -97,6 +97,7 @@ namespace WaveCloud.Repository.Generics
             }
             catch (Exception ex)
             {
+               
                 errorMessage = ex.Message;
             }
             return (false, null, errorMessage);
