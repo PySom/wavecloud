@@ -14,6 +14,11 @@ export default function Audio(props) {
     const [audioTimeText, setAudioTimeText] = useState("0.00");
     
  
+    const addToCart = () => {
+        console.log("myyy", props.beat)
+        props.addToCart({...props.beat, userId: props.userId})
+    }
+    
      function displayVolumeControl(type){
          if(type === "volume"){
              setVolume(() => false)
@@ -29,7 +34,10 @@ export default function Audio(props) {
     //     //displayVolumeControl("muted")
     // }
 
-
+    // const download = (e) => {
+    //     setDownload(true)
+    //  }
+ 
     const audioCanPlay = (e) => {
         setVolume(() => true)
         setAudio(() => true)
@@ -135,6 +143,7 @@ export default function Audio(props) {
                 <div onClick={progressVolume} id="progress-v-bg" class="volume-bg">
                     <div id="progress-bar" class="volume-pc"></div>
                 </div>
+                <img onClick={addToCart} className="download" src="images/download.png"/>
           </div>
         </>
     )

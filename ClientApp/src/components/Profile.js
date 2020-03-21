@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import axios from 'axios';
 import Footer from './Footer';
-
+import Rating from './Rating';
 
 String.prototype.toTitleCase = function () {
  return this[0].toUpperCase() + this.slice(1)
@@ -148,7 +148,10 @@ const authentication = () => {
       
     }).catch(err => console.log(err))
   }
+
   
+  
+
 
 
 console.log("user",getUser())
@@ -261,7 +264,7 @@ console.log("upload",upload)
                             </div>
                             <div className="card-body">
                                <h2 className="title">{bd.description}</h2>                           
-                               <img className="star-ish" src="images/star.svg" />
+                               <Rating beatId={bd.id} rate={bd.rating} userId={getUser() && getUser().id}/>
                               <p className="amount">${bd.amount}</p>
                             </div>
                         </div>

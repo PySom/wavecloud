@@ -5,6 +5,10 @@ import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import Audiomac from './Audiomac';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
+import Rated from "./Rated";
+import Modal from 'react-responsive-modal';
+
 
 const buttonData = [
   {
@@ -31,7 +35,7 @@ const buttonData = [
 
 ]
 
-export default function Wavecloud() {
+export default function Wavecloud({addToCart,open,closeModal}) {
   const [beat, setBeat]= useState()
   const [beatCategory, setBeatCategory] = useState([])
   const [filter, showFilter] = useState()
@@ -40,7 +44,21 @@ export default function Wavecloud() {
   const [beatData, setBeatData] = useState([])
   const [uploadData, setUploadData] = useState([])
   const [beatSet, setBeatSet] = useState(false)
+  const [currentBeat, setCurrentBeat] = useState();
 
+
+  const getUser = () => {
+    if (localStorage.getItem('userdata')) {
+        return JSON.parse(localStorage.getItem('userdata'));
+    }
+  }
+
+  
+  const getUserCart = () => {
+    return JSON.parse(localStorage.getItem('usercart'))
+  }
+
+  console.log("cart", getUserCart())
   const beatStore = () => {
     document.getElementById("store").style.display = "none";
     document.getElementById("find").style.display = "none";
@@ -68,8 +86,12 @@ export default function Wavecloud() {
        setUploadData(() => newupload)
     })
     .catch(err => console.log(err))
+  
+  
+  
   }, [beatSet])
 
+ 
 
 
   const genre = (id) => {
@@ -87,7 +109,10 @@ export default function Wavecloud() {
 
   const [decision, setDecision] = useState();
 
-  const handleShow = (music, pic) => {
+  const handleShow = (beat) => {
+    const music = beat.content
+    const pic = beat.image
+    setCurrentBeat(beat)
     setDecision(true);
     setAudio(() => music);
     setPic(() => pic);
@@ -110,6 +135,34 @@ export default function Wavecloud() {
   }
 
     return (
+    
+      <>
+     <Modal open={open} onClose={closeModal} little>
+     <div className="container up-studio" >
+       <h2 className="main-studio">Cart</h2>
+     {getUserCart().map((cart) => (
+        <div className="row spacing">
+        <div className="col-md-5">
+            <img className="widthy-studio" src={cart.image}/>
+        </div>
+        <div className="col-md-7">
+              <h3 className="studio-name"> {cart.description}</h3>
+              <Rated  beatId={cart.id} rate={cart.rating} userId={getUser() && getUser().id}/>
+               <p>({cart.rating})</p>
+              <h4 className="rating-amount"><span className="naira"> ₦</span>{cart.amount}</h4>
+        </div>
+
+         
+      </div>
+        
+      ))}
+      
+      <div>
+          <button className="butt-studio">Checkout</button>
+        </div>
+
+ </div>
+     </Modal>
      
     <div className="banner-bottom-agile text-center">
 		<div className="py-xl-5 py-lg-3">
@@ -174,7 +227,7 @@ export default function Wavecloud() {
                 
                     
                       <div className={decision ? "decision" : "decision-none"}>
-                           <Audiomac music={audio} pic={pic}/>
+                           <Audiomac music={audio} pic={pic} addToCart={(b) => addToCart(b)} beat={currentBeat} userId={getUser() && getUser().id}/>
                     </div>
                 
                    
@@ -198,12 +251,12 @@ export default function Wavecloud() {
                         <div className="card widthy">
                             <div>
                               <img className="imaging" src={bd.image}/>
-                              <img onClick={() => handleShow(bd.content, bd.image)} className="play-it" src="images/play.png"></img>   
+                              <img onClick={() => handleShow(bd)} className="play-it" src="images/play.png"></img>   
                             </div>
                             <div className="card-body">
                                <h2 className="title">{bd.description}</h2>                           
-                               <img className="star-ish" src="images/star.svg" />
-                              <p className="amount">${bd.amount}</p>
+                               <Rating beatId={bd.id} rate={bd.rating} userId={getUser() && getUser().id}/>
+                              <p className="amount">₦{bd.amount}</p>
                             </div>
                         </div>
                   </div>
@@ -234,8 +287,8 @@ export default function Wavecloud() {
                             </div>
                             <div className="card-body">
                                <h2 className="title">{bd.description}</h2>                           
-                               <img className="star-ish" src="images/star.svg" />
-                              <p className="amount">${bd.amount}</p>
+                               <Rating/>
+                              <p className="amount">₦{bd.amount}</p>
                             </div>
                         </div>
                   </div>
@@ -250,6 +303,6 @@ export default function Wavecloud() {
                
             </div>
         </div>
-    
+    </>
                 )
             }

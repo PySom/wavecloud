@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link, Route } from 'react-router-dom';
+import Dropdown from './Dropdown';
 
 
 const data = [
@@ -30,7 +31,7 @@ const data = [
 ]
 
 
-export default function Studiofind() {
+export default function Studiofind({userBeats,openModal}) {
 	
 const [search, setSearch] = useState(data)
 const [searched, setSearched] = useState("");
@@ -48,21 +49,30 @@ const searchStudio = ({target: {value}}) => {
 	setSearched(() => value)
   }
 
+  const authentication = () => {
+	const token = localStorage.getItem('token');
+	console.log('token', token)
+    if (token) {
+      return true;
+	}
+  }
+
+
 	console.log()
     return (
         <>
 	   <div class="main-banner-w3ls">
-      <header>
+	   <header>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<a className="navbar-brand" >
-          <img src="images/WAVCLOUD.png" className="logo img-fluid" alt=""/>
+				<Link to="/"><img src="images/WAVCLOUD.png" className="logo img-fluid" alt="" /> </Link>      
 				</a>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-toggle" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse navbar-toggle " id="navbarNavAltMarkup">
-					<ul className="navbar-nav mx-lg-auto" style={{paddingRight: "180px"}}>
+					<ul className="navbar-nav " style={{paddingRight: "14%", paddingLeft:"24%"}}>
 						<li>
 							<Link className="nav-link active"  to="/" >Home</Link>
 						</li>
@@ -94,9 +104,27 @@ const searchStudio = ({target: {value}}) => {
 						    <Link className="nav-link"  to="/contact" >Contact</Link>
 						</li>
 					</ul>
-		
-						<img className="cart" src="images/cart.png"/><span class="cart-span">1</span>
 					
+					{ authentication() &&
+					<Dropdown/>
+                      }
+			
+			          { authentication() ? 
+						
+					    <>
+					<a className="pointer" onClick={openModal}>
+					  <img  className="cart" src="images/cart.png"/>
+						  <span class="cart-span">{userBeats ? userBeats : ""}</span>			 
+						  </a>
+					  </>
+					  : 
+						 
+						  <img className="cart2" src="images/cart2.png"/>
+					 }
+				
+					
+				
+				
 					
 				</div>
 			</nav>

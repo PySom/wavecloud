@@ -21,7 +21,7 @@ export default class Dropdown extends Component {
             <div class="dropdown dropdown">
             <button class="dropbtn">Welcome {this.getUser().firstName}
             </button>
-            <img  className="cart-resized" src="images/caret.png" style={{width:"3.2%"}}/>
+            <img  className="cart-resized" src="images/caret.png" style={{width:"5.2%"}}/>
            <div class="dropdown-content">
            <Link to="/profile">Profile</Link>
            <Link onClick={this.handleLogout} to="/">Log out</Link>

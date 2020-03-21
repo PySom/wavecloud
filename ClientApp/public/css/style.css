@@ -1829,11 +1829,12 @@ color: #000000;
 }
 
 .amount {
- font-size: 10px !important;
+font-size: 10px !important;
+padding-left: 5px;
 line-height: 15px;
 text-align: left !important;
 color: #000000;
-padding-top: 10px !important;
+padding-top: 4px !important;
 
 }
 
@@ -2499,7 +2500,8 @@ input:focus {
 }
 
 .cart {
-    width: 5%;
+    margin-left: 58%;
+    width: 25%;
 }
 .cart2 {
     position: absolute;
@@ -2510,10 +2512,22 @@ input:focus {
 .cart-span {
     color: rgb(159, 89, 190);
     position: absolute;
-    right: 72px;
-    top: 31px;
+    right: 103px;
+    top: 29px;
     font-weight: bolder;
-    font-size: 17px;
+    font-size: 15px;
+}
+
+button.styles_closeButton__20ID4:hover {
+    background: #e4e5e9;
+    padding: 3px;
+    border-radius: 50%;
+
+
+}
+
+button.styles_closeButton__20ID4:focus{
+    outline: none;
 }
 
 .studio-sound {
@@ -2525,6 +2539,11 @@ input:focus {
     padding: 20px;
 }
 
+.widthy-studio {
+    width: 200px;
+    height: 149px;
+    border-radius: 4%;
+}
 .higher-width {
         width: 100%;
 }
@@ -2550,7 +2569,7 @@ input:focus {
     background-color: transparent;
     color: white;
     font-weight: 700;
-    padding: 16px;
+    padding: 9px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -2885,3 +2904,70 @@ table {
     display: block;
 }
 
+.starish {
+    margin-right: 58%;
+    padding-top: 5%
+}
+
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.download {
+    width: 4%;
+    padding-left: 29px;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.styles_closeIcon__1QwbI {
+    cursor: pointer;
+    border: none;
+}
+
+.styles_closeIcon__1QwbI:focus {
+    outline: none;
+}
+
+.styles_modal__gNwvD {
+    max-width: 800px;
+    position: relative;
+    padding: 1.2rem;
+    background: #ffffff;
+    background-clip: padding-box;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+}
+
+.pad-cart {
+    padding-top: 12px !important;
+}
+
+.rating-amount {
+
+        position: absolute;
+        font-size: 12px;
+        bottom: 6px;
+    
+}
+
+.butt-studio {
+    padding: 15px;
+    width:490px;
+    background: #9F59BE;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 30px;
+    font-style: normal;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Dropdown from './Dropdown';
 
 
-export default function Header() {
+
+export default function Header({userBeats,openModal}) {
 const [topMenu, setTopMenu] = useState(false)
 const [bottomMenu, setBottomMenu] = useState(true)
 
@@ -74,7 +75,15 @@ const authentication = () => {
 					<Dropdown/>
                       }
 					  { authentication() ? 
-					  <>	<img className="cart" src="images/cart.png"/><span class="cart-span">1</span></>: 
+						
+					    <>
+					<a className="pointer" onClick={openModal}>
+					  <img  className="cart" src="images/cart.png"/>
+						  <span class="cart-span">{userBeats ? userBeats : ""}</span>			 
+						  </a>
+					  </>
+					  : 
+						 
 						  <img className="cart2" src="images/cart2.png"/>
 					 }
 				
