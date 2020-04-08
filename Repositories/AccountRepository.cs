@@ -46,7 +46,16 @@ namespace WaveCloud.Repository
         {
             if(model.Password == model.ConfirmPassword)
             {
-                bool hasAccount = await _ctx.Users.AnyAsync(u => u.Email.ToLower() == model.Email.ToLower());
+                bool hasAccount = false;
+                try
+                {
+                    hasAccount = _ctx.Users.Any(u => u.Email.ToLower() == model.Email.ToLower());
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return (null, ex.Message);
+                }
                 if (hasAccount) { return (null, "user already exists"); }
 
                 string passwordHash = Hash.GetHashedValue(model.Password);
@@ -56,7 +65,7 @@ namespace WaveCloud.Repository
                 try
                 {
                     _ctx.Users.Add(user);
-                    await _ctx.SaveChangesAsync();
+                    _ctx.SaveChanges();
                 }
                 catch (Exception ex)
                 {

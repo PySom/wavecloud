@@ -140,7 +140,7 @@ export default function Wavecloud({addToCart,open,closeModal}) {
      <Modal open={open} onClose={closeModal} little>
      <div className="container up-studio" >
        <h2 className="main-studio">Cart</h2>
-     {getUserCart().map((cart) => (
+     {getUserCart() && getUserCart().map((cart) => (
         <div className="row spacing">
         <div className="col-md-5">
             <img className="widthy-studio" src={cart.image}/>
