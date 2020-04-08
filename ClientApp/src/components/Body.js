@@ -11,6 +11,7 @@ const getUserCart = () => {
 export default function Body() {
     const [open, setOpen] = useState(false);
     const [userBeats, setUserBeat] = useState(getUserCart() || []);
+    const [loader, setLoader] = useState('')
 
 
 
@@ -20,7 +21,10 @@ export default function Body() {
     
     }, [userBeats])
 
-    
+
+    const loading = () => {
+       setLoader(true)
+    }
 
 
     const addToCart = (beat) => {
@@ -44,10 +48,12 @@ export default function Body() {
       setOpen(false)
     }
 
+
+
     return (
       <>
       <Header openModal={onOpenModal}  userBeats={userBeats.length}/>
-      <Wavecloud  open={open} closeModal={onCloseModal} addToCart={(beat) => addToCart(beat)}/>
+      <Wavecloud open={open} closeModal={onCloseModal} addToCart={(beat) => addToCart(beat)}/>
       <Footer/>
       </>
     )
