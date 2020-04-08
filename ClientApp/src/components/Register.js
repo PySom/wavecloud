@@ -44,16 +44,16 @@ export default class Register extends Component {
     }
 
     submitForm(e) {
-        const data = {
+        const register = {
             FirstName: this.state.name, 
             Email: this.state.email,
             Password: this.state.password,
             ConfirmPassword: this.state.confirm
           }
         
-        console.log(data)
+        console.log(register)
         e.preventDefault();
-        axios.post('/api/account/register', data).then(response => {
+          axios.post('/api/account/register', register).then(response => {
           localStorage.setItem('token', response.data.token)
           localStorage.setItem('userdata', JSON.stringify(response.data))
           localStorage.setItem('isAdmin', JSON.stringify(response.data.isAdmin))
@@ -139,7 +139,7 @@ export default class Register extends Component {
                            </div>
             
                            <div >
-                                <button className="login-button"  type="submit" > Login</button>
+                                <button className="login-button"  type="submit" > Register</button>
                             </div>
                           
             

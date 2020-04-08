@@ -1,11 +1,4 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 
-/*-- Reset Code --*/
 
 body {
     padding: 0;
@@ -789,6 +782,12 @@ p.sub-meta {
     text-transform: uppercase;
 }
 
+.nav-styling {
+    padding-right: 14%;
+    padding-left: 24%;
+
+}
+
 .text-info-sec i {
     color: #EB2941;
 }
@@ -1172,14 +1171,18 @@ button.contact-submit {
     }
 
     a.navbar-brand img {
-        top: -6px;
-        left: 24px;
+        /* top: -6px; */
+        /* left: 24px; */
         width: 40%;
     }
 
+    .navbar-light .navbar-toggler{
+        border: none;
+    }
+
     .navbar-light .navbar-toggler {
-        border-color: #fff;
-        background: #fff;
+        border-color: #c86fef;
+        background: #b161c5;
         padding: 4px 10px;
     }
 
@@ -1191,6 +1194,8 @@ button.contact-submit {
         background: #000;
         text-align: center;
         padding: 1em 0;
+        margin-top: 18px;
+        z-index: 1000;
     }
 
     .banner-agile-text {
@@ -1257,7 +1262,7 @@ button.contact-submit {
     }
 
     .main-banner-w3ls {
-        border-radius: 0 0 120px 0;
+        border-radius: 0 0 0 0;
     }
 
     img.fashion-img {
@@ -1313,7 +1318,7 @@ button.contact-submit {
     }
 
     .main-banner-w3ls {
-        min-height: 680px;
+        min-height: 403px;
     }
 
     footer {
@@ -1392,11 +1397,12 @@ button.contact-submit {
 
 @media(max-width: 480px) {
     h3.title-wthree span {
-        font-size: 32px;
+        font-size: 23px;
     }
 
     h3.title-wthree {
         font-size: 14px;
+        padding-top: 29px;
     }
 
     p.para-bottom-wthree {
@@ -1457,13 +1463,13 @@ button.contact-submit {
     }
 
     a.navbar-brand {
-        font-size: 34px;
+        font-size: 75px;
     }
 
     a.navbar-brand img {
-        top: -3px;
-        left: 16px;
-        width: 40%;
+        /* top: -3px; */
+        /* left: 16px; */
+        width: 512px;
     }
 }
 
@@ -1566,7 +1572,8 @@ button.contact-submit {
     }
 
     p.banner-para-wthree {
-        font-size: 12px;
+        font-size: 19px;
+        left: 64px;
     }
 
     img.fashion-img {
@@ -1576,6 +1583,90 @@ button.contact-submit {
 }
 
 @media(max-width: 375px) {
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
+    .button-style-login {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #9F59BE;
+        background: #9F59BE;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 27px;
+        top: 218px;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+    }
+
+    .button-style {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #fff;
+        background: transparent;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 211px;
+        top: 193px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;
+    }
+
+    p.banner-para-wthree {
+        font-size: 19px;
+        left: 64px;
+    }
+
+    .cart2 {
+        position: relative !important;
+        width: 8% !important;
+        right: 0 !important;
+        padding-top: 15px;
+    }
+    .fix-it {
+        display: none;
+    }
+
+    .nav-styling {
+        padding-right: 1%;
+        padding-left: 1%;
+    
+    }
+    .search {
+        display: none;
+    }
     .back-icon-wthree {
         padding: 2.5em !important;
     }

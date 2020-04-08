@@ -34,4 +34,5 @@ namespace WaveCloud.Models
     }
 
     public enum Emotion : byte { None, Happy, Hipnotic, Calm, Sad}
+    
 }

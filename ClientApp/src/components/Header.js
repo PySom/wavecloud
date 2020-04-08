@@ -38,7 +38,7 @@ const authentication = () => {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse navbar-toggle " id="navbarNavAltMarkup">
-					<ul className="navbar-nav " style={{paddingRight: "14%", paddingLeft:"24%"}}>
+					<ul className="navbar-nav nav-styling ">
 						<li>
 							<Link className="nav-link active"  to="/" >Home</Link>
 						</li>
