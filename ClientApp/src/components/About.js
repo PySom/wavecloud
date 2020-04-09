@@ -58,7 +58,7 @@ export default function About() {
               </nav>
           </header>
           </div>
-
+{/* 
           <div className="grey">
               <div className="pad-grey">
                   <div className="d-flex">
@@ -70,35 +70,36 @@ export default function About() {
                   </div>
                  
               </div>
-          </div>
+          </div> */}
 
           <div className="lighter-grey">
-              <div className="d-flex first-layer">
-              <div className="pad-grey">    
-                    <h3 className="aboutus">About us</h3>
+              <div className="container-fluid first-layer">
+                  <div className="row">
+                      <div className="col-md-6">
+                      <h3 className="aboutus">About us</h3>
                             <p className="aboutparagraph">Wavcloud inspires the music industry world wide with undiluted instrumentals</p>
                             <p className="aboutbelow">The all-in-one commerce platform to start, run and grow your music career</p>     
-                 </div>   
-                <div>
-                    <img className="firstpic" src="images/rectangle.png"></img>
-                </div>  
+                      </div>
+                      <div className="col-md-6">
+                         <img className="firstpic" src="images/rectangle.png"></img>                              
+                      </div>
+                  </div> 
+             
               </div>
              
           </div>
-
           <div className="lighter-grey">
-              <div className="d-flex">
-                   <div className="pad-grey">  
-                   <img className="firstpic" src="images/rectangle2.png"></img>
-                    </div>   
-                <div>
-                <h3 className="aboutuswhite">About us</h3>
-                            <p className="aboutparagraph">A growth engine for modern instrumentals</p>
-                            <p className="aboutbelow">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-
-when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>     
-                 
-                </div>  
+              <div className="container-fluid second-layer">
+                  <div className="row">
+                      <div className="col-md-6">
+                      <img className="firstpic" src="images/rectangle2.png"></img> </div>
+                      <div className="col-md-6">
+                      <p className="aboutparagraph">A growth engine for modern instrumentals</p>
+                        <p className="aboutbelow">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                       when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>                                       
+                      </div>
+                  </div> 
+             
               </div>
              
           </div>
@@ -121,3 +122,5 @@ when an unknown printer took a galley of type and scrambled it to make a type sp
   
       )
 } 
+
+

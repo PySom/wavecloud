@@ -78,17 +78,19 @@ export default function About() {
 
             <div className="lighter-grey">
             {datum.map((data) => (
-                   <div className="d-flex first-layer">
-                  
-                   <div className="pad-grey">    
-                        <h3 className="blog-starter">{data.theme} <span>|</span><span className="time">{data.time}</span></h3>
+                   <div className="container-fluid first-layer">
+                  <div className="row">
+                      <div className="col-md-6">
+                      <h3 className="blog-starter">{data.theme} <span>|</span><span className="time">{data.time}</span></h3>
                         <p className="blog-mid">{data.header}</p>
                         <p className="blog-end">{data.short}</p>   
                         <button className="blog-butt">Read more</button>  
+                      </div>
+                   <div className="col-md-6">    
+                   <img className="firstpic" src={data.image}></img>
                      </div>   
-                     <div>
-                         <img className="firstpic" src={data.image}></img>
-                     </div>  
+                    
+                   </div>
                    </div>
             ))}
            

@@ -6,12 +6,38 @@ import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import axios from 'axios';
 import Footer from './Footer';
 import Rating from './Rating';
+import Dropdown from './Dropdown';
 
 String.prototype.toTitleCase = function () {
  return this[0].toUpperCase() + this.slice(1)
 };
+const options = {
+  responsiveClass: true,
+  responsive: {
+      0: {
+          items: 1,
+      },
+      400: {
+          items: 1,
+      },
+      600: {
+          items: 2,
+      },
+      700: {
+          items: 3,
+      },
+      1024: {
+          items: 4,
 
-export default function Header() {
+      },
+
+      1200: {
+        items: 5,
+
+    }
+  },
+};
+export default function Header({userBeats,openModal}) {
 const [topMenu, setTopMenu] = useState(false)
 const [bottomMenu, setBottomMenu] = useState(true)
 
@@ -167,17 +193,23 @@ console.log("upload",upload)
  
       <>
 	   <div class="main-banner-w3ls2">
-      <header>
+     <header>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<a className="navbar-brand" >
-              <Link to="/"><img src="images/WAVCLOUD.png" className="logo img-fluid" alt="" /> </Link>   
+				<Link to="/"><img src="images/WAVCLOUD.png" className="logo img-fluid" alt="" /> </Link>      
 				</a>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-toggle" aria-controls="navbarNavAltMarkup"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
-                <div className="collapse navbar-collapse navbar-toggle " id="navbarNavAltMarkup">
-					<ul className="navbar-nav " style={{paddingRight: "14%", paddingLeft:"24%"}}>
+				<div className="collapse navbar-collapse navbar-toggle " id="navbarNavAltMarkup">
+					<ul className="navbar-nav nav-styling ">
+						<li>
+							<Link className="nav-link active"  to="/" >Home</Link>
+						</li>
+						<li>
+						      <Link className="nav-link"  to="/about" >About</Link>
+						</li>
 
 						<li className="nav-item dropdown fix-it">
 							
@@ -196,18 +228,38 @@ console.log("upload",upload)
 						<li  className="search">
 							<img src="images/search.png" className="nav-link "/>
 						</li>
-					
+						<li>
+						     <Link className="nav-link"  to="/blog" >Blog</Link>
+						</li>
+						<li>
+						    <Link className="nav-link"  to="/contact" >Contact</Link>
+						</li>
 					</ul>
 					
+					{ authentication() &&
+					<Dropdown/>
+                      }
+					  { authentication() ? 
+						
+					    <>
+					<a className="pointer" onClick={openModal}>
+					  <img  className="cart" src="images/cart.png"/>
+						  <span class="cart-span">{userBeats ? userBeats : ""}</span>			 
+						  </a>
+					  </>
+					  : 
+						 
+						  <img className="cart2" src="images/cart2.png"/>
+					 }
 				
 					
 				
 				
 					
 				</div>
-			
 			</nav>
 		</header>
+
 
 		<div className="banner-agile-text banner-size">
 			<div className="container">
@@ -251,6 +303,7 @@ console.log("upload",upload)
                      autoplay
                      dots
                      loop
+                      {...options}
                      >
                {beatData.map((bd) => {
                  console.log("inside beat data", bd)

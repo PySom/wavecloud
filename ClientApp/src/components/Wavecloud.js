@@ -35,6 +35,33 @@ const buttonData = [
 
 ]
 
+const options = {
+  responsiveClass: true,
+  responsive: {
+      0: {
+          items: 1,
+      },
+      400: {
+          items: 1,
+      },
+      600: {
+          items: 2,
+      },
+      700: {
+          items: 3,
+      },
+      1024: {
+          items: 4,
+
+      },
+
+      1200: {
+        items: 5,
+
+    }
+  },
+};
+
 export default function Wavecloud({addToCart,open,closeModal}) {
   const [beat, setBeat]= useState()
   const [beatCategory, setBeatCategory] = useState([])
@@ -168,7 +195,7 @@ export default function Wavecloud({addToCart,open,closeModal}) {
     <div className="banner-bottom-agile text-center">
 		<div className="py-xl-5 py-lg-3">
 			<div className="mb-lg-5 mb-sm-4 mb-3">
-				<h3 className="title-wthree mb-2">
+				<h3 className="title-wthree mb-2 mt-4">
 				  <span className="mt-2 text-uppercase font-weight-bold">What’s On Wavcloud</span>
                   </h3>
 			</div>
@@ -244,6 +271,8 @@ export default function Wavecloud({addToCart,open,closeModal}) {
                      autoplay
                      dots
                      loop
+                     {...options}
+                     
                      >
                {beatData.map((bd) => {
                  return (
@@ -272,7 +301,7 @@ export default function Wavecloud({addToCart,open,closeModal}) {
                      <div className="top-padding">
 				                <h3 className="uploaded">New Uploads</h3>
                           <OwlCarousel
-                     items="4"
+                     items="5"
                      className="owl-theme"
                      autoplay
                      dots
