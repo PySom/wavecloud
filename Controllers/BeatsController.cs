@@ -6,6 +6,7 @@ using WaveCloud.Repository.Generics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WaveCloud.Models;
+using WaveCloud.Repository.Extension;
 
 namespace WaveCloud.Controllers
 {
@@ -24,29 +25,44 @@ namespace WaveCloud.Controllers
         [HttpGet]
         public async ValueTask<IActionResult> Get([FromQuery]Emotion emotion = Emotion.None, int genreId = 0)
         {
+            ICollection<Beat> options = new List<Beat>();
             if(emotion == Emotion.None){
-                ICollection<Beat> options = await _repo
+                options = await _repo
                                                 .Item()
+                                                .Include(c => c.Ratings)
                                                 .ToListAsync();
-                return Ok(options);
+                
             }
             else{
                 if(genreId == 0){
-                    ICollection<Beat> options = await _repo
+                    options = await _repo
                                                 .Item()
                                                 .Where(e => e.Emotion == emotion)
+                                                .Include(c => c.Ratings)
                                                 .ToListAsync();
-                    return Ok(options);
                 }
                 else{
-                    ICollection<Beat> options = await _repo
+                    options = await _repo
                                                 .Item()
                                                 .Where(e => e.Emotion == emotion && e.GenreId == genreId)
+                                                .Include(c => c.Ratings)
                                                 .ToListAsync();
-                    return Ok(options);
                 }
                 
             }
+            if(options.Count() > 0){
+                var vm = options.Select(b => {
+
+                        var rt = b.Convert<Beat, BeatViewModel>(_mapper);
+                        rt.Rating = b.Ratings.Aggregate(0, (double acc, Rating cur) => {
+                            acc += cur.Rate;
+                            return acc;}, data => b.Ratings.Count() > 0 ? data / b.Ratings.Count() : 0);
+                        return rt;
+                    }).ToList();
+                        
+                return Ok(vm);
+            }
+            return Ok(options);
         }
          
 

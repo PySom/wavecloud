@@ -18,7 +18,7 @@ export default class Dropdown extends Component {
     
     render() {
         return (
-            <div class="dropdown dropdown">
+            <div class="dropdown dropdown user-drop">
             <button class="dropbtn">Welcome {this.getUser().firstName}
             </button>
             <img  className="cart-resized" src="images/caret.png" style={{width:"5.2%"}}/>

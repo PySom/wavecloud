@@ -44,16 +44,16 @@ export default class Register extends Component {
     }
 
     submitForm(e) {
-        const data = {
+        const register = {
             FirstName: this.state.name, 
             Email: this.state.email,
             Password: this.state.password,
             ConfirmPassword: this.state.confirm
           }
         
-        console.log(data)
+        console.log(register)
         e.preventDefault();
-        axios.post('/api/account/register', data).then(response => {
+          axios.post('/api/account/register', register).then(response => {
           localStorage.setItem('token', response.data.token)
           localStorage.setItem('userdata', JSON.stringify(response.data))
           localStorage.setItem('isAdmin', JSON.stringify(response.data.isAdmin))
@@ -61,9 +61,19 @@ export default class Register extends Component {
            this.setState({...this.state, error:userdata, Authentication:true});
         })
     
-        .catch(err => console.log(err))
-       
+         .catch(err => {
+            console.log(err)
+            const warn = document.getElementById("_warning-reg");
+            if(warn.classList.contains("d-none")){
+              warn.classList.add("d-block");
+            }
+            else {
+              warn.classList.remove("d-none") ;
+            }
+          })
         
+        
+         
       }
 
       authentication() {
@@ -85,8 +95,15 @@ export default class Register extends Component {
         return (
             <>
              {auth ? <Redirect to = {{pathname: "/"}}/> : (
-                        <div className="background-image">
-                        <div className="d-inline  pad-login">
+                 <div className="contain-it">
+                     <div className="row">
+                         <div className="col-md-6 mobile-login">
+                         <div className="background-image">   
+                          </div>
+                         </div>
+
+                         <div className="col-md-6 col-12 pad-register">
+                         <div className="d-inline ">
                            <h3 className="login">Register</h3>
                            <div className="d-flex">
                                         <img className="login-right" src="images/loginfacebook.svg"/>
@@ -97,7 +114,7 @@ export default class Register extends Component {
                             <div className="resized">
                                 <p className="resized-p">or use your account </p>
                             </div>
-                            <form method="POST" onSubmit={this.submitForm}>  
+                            <form className="form-width" method="POST" onSubmit={this.submitForm}>  
                              <div className="pad-account">
             
                              <div className="input-group d-inline">
@@ -139,16 +156,29 @@ export default class Register extends Component {
                            </div>
             
                            <div >
-                                <button className="login-button"  type="submit" > Login</button>
+                                <button className="login-button"  type="submit" > Register</button>
                             </div>
                           
             
                              </div>
-                         </form>
+                             <div className="container">
+                             <div className="reg-width row">
+                             <span id="_warning-reg" className="d-none text-danger text-center ">Username already exists or Passwords doesn't match</span>
+                         
+                             </div>
+                             </div>
+                            
+                            </form>
                              
                             
                         </div>
-                        </div>
+                    
+                         </div>
+
+                     </div>
+                 </div>
+                       
+                      
                   
               )}
           

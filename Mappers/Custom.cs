@@ -12,6 +12,8 @@ namespace WaveCloud.Mappers
                 .ReverseMap();
             CreateMap<ApplicationUser, UserViewModel>()
                 .ReverseMap();
+            CreateMap<Beat, BeatViewModel>()
+                .ReverseMap();
         }
     }
 }

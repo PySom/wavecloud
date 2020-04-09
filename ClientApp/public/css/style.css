@@ -1,11 +1,4 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 
-/*-- Reset Code --*/
 
 body {
     padding: 0;
@@ -789,6 +782,12 @@ p.sub-meta {
     text-transform: uppercase;
 }
 
+.nav-styling {
+    padding-right: 14%;
+    padding-left: 24%;
+
+}
+
 .text-info-sec i {
     color: #EB2941;
 }
@@ -1059,9 +1058,41 @@ button.contact-submit {
 
 @media(max-width: 1366px) {}
 
-@media(max-width: 1280px) {}
+@media(max-width: 1280px) {
+    .resized-right {
+        padding-top: 20px;
+        position: absolute;
+        right: 82px;
+    }
+}
 
 @media(max-width: 1080px) {
+
+    p.banner-para-wthree {
+        position: absolute;
+        width: 247px;
+        height: 54px;
+        left: 433px;
+        top: 103px;
+        font-style: normal;
+        font-weight: bolder;
+        font-size: 36px;
+        line-height: 54px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .button-style-login {
+        left: 579px;
+    }
+
+    .button-style {
+        left: 401px;
+    }
+
+    .footer-up {
+        display: none;
+    }
     .icon-button-w3 i {
         font-size: 2.5em;
     }
@@ -1095,13 +1126,15 @@ button.contact-submit {
     }
 
     .main-banner-w3ls {
-        border-radius: 0 0 200px 0;
-        min-height: 650px;
+        min-height: 445px;
         position: relative;
+        height: 28vh;
     }
 
+ 
+
     .navbar {
-        padding: 1em 2em;
+        padding: 2em 2em;
     }
 
     img.fashion-img {
@@ -1125,16 +1158,213 @@ button.contact-submit {
         font-size: 14px;
     }
 
-    footer {
-        border-radius: 0 200px 0 0;
+
+}
+
+@media(min-width: 1050px) {
+    .black {
+        color: black !important;
+    }
+    #_warning-reg {
+        padding-top: 14px;
+        margin: 0 auto;
+        padding-right: 62px;
     }
 }
 
-@media(max-width: 1050px) {}
+@media(max-width: 1024px) {
+    .greyish-bg {
+        height: 25vh !important; 
+    }
+    .grey {
+       display: none;
+    }
+.grey-bg {
+    display: none;
+}
 
-@media(max-width: 1024px) {}
+    .black {
+        color: #000 !important;
+    }
+
+    .firstpic {
+        width: 471px !important;
+        padding-top: 3% !important;
+        padding-bottom: 10% !important;
+        padding-right: 29% !important;
+    }
+    .about {
+        height: 9vh !important;
+    }
+
+    .grey {
+        height: 5vh;
+    }
+
+    p.banner-para-wthree {
+        font-size: 28px !important;
+    }
+
+    .cart-span {
+        right: 48px !important;
+        top: 40px !important;
+    }
+    .cart {
+        width: 34% !important ;
+    }
+    .cart-resized {
+        display: none !important;
+    }
+    .main-banner-w3ls2 {
+        height: 33vh !important;
+    }
+
+    .resized-right {
+        right: 53px;
+    }
+    .login-button {
+        width: 463px !important;
+    }
+    .input--style-3 {  
+        width: 457px !important;
+    }
+
+    .resized-right {
+        padding-top: 20px;
+        position: absolute;
+        right: 47px !important;
+    }
+}
 
 @media(max-width: 991px) {
+ 
+
+ 
+    #store {
+        display: none;
+    }
+
+    .copyright {
+        color: #fff !important;
+        padding-right: 83px;
+        padding-top: 16px;
+    }
+    .number {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    .pad-right {
+        padding-bottom: 38px;
+    }
+    .footer-up {
+        display: none;
+    }
+     .owl-item {
+      width: 277px !important;
+    }
+
+    .imaging {
+        width: 279px !important;
+        height: 204px !important;
+        border-radius: 20px !important;
+    }
+
+    .widthy {
+        width: 279px !important;
+        border: none !important;
+        background: #F2F2F2;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        padding-right: 13px;
+        padding-bottom: 2px;
+        width: 25%;
+    }
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
+    .button-style-login {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #9F59BE;
+        background: #9F59BE;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 27px;
+        top: 218px;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+    }
+
+    .button-style {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #fff;
+        background: transparent;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 211px;
+        top: 193px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;
+    }
+
+    p.banner-para-wthree {
+        font-size: 19px;
+         left: 255px;
+    }
+
+    .cart2 {
+        position: relative !important;
+        width: 4% !important;
+        right: 0 !important;
+        padding-top: 15px;
+    }
+    .fix-it {
+        display: none;
+    }
+
+    .nav-styling {
+        padding-right: 1%;
+        padding-left: 1%;
+    
+    }
+    .search {
+        display: none;
+    }
     h3.title-wthree span {
         font-size: 38px;
     }
@@ -1153,7 +1383,8 @@ button.contact-submit {
     }
 
     h3.title-wthree {
-        font-size: 15px;
+        font-size: 15px; 
+        padding-top: 33px;
     }
 
     .right-models .card-body i,
@@ -1168,18 +1399,23 @@ button.contact-submit {
 
     /* //team */
     a.navbar-brand {
-        font-size: 40px;
+        font-size: 197px;
     }
 
     a.navbar-brand img {
-        top: -6px;
-        left: 24px;
+        /* top: -6px; */
+        /* left: 24px; */
         width: 40%;
     }
 
+    .navbar-light .navbar-toggler{
+        border: none;
+        z-index: 100;
+    }
+
     .navbar-light .navbar-toggler {
-        border-color: #fff;
-        background: #fff;
+        border-color: #c86fef;
+        background: #b161c5;
         padding: 4px 10px;
     }
 
@@ -1191,6 +1427,8 @@ button.contact-submit {
         background: #000;
         text-align: center;
         padding: 1em 0;
+        margin-top: 18px;
+        z-index: 1000;
     }
 
     .banner-agile-text {
@@ -1222,12 +1460,107 @@ button.contact-submit {
 }
 
 @media(max-width: 900px) {
+    .button-image {
+
+        right: 3px !important;
+        bottom: 57px !important;
+        padding: 5px 8px !important;
+    }
+    .login-button {
+        width: 331px !important;
+    }
+
+    .resized-right {
+        padding-top: 13px !important;
+        right: 33px !important;
+    }
+    .mobile-login {
+        display: none;
+    }
+    .input--style-3 {
+        width: 331px !important;
+        margin-top: 10px !important;
+    }
+
+    .contain-it {
+        width: 98%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 1;
+    }
+
     .main-banner-w3ls {
-        min-height: 580px;
+        min-height: 445px;
     }
 }
 
 @media(max-width: 800px) {
+
+    .firstpic {
+        width: 384px !important;
+        padding-top: 3% !important;
+        padding-bottom: 10% !important;
+        padding-right: 29% !important;
+    }
+
+    .black {
+        color: #fff !important;
+    }
+    .dropdown-content {
+        left: 29% !important;
+    }
+
+    .cart-span {
+        right: 45.6% !important;
+        top: 82.3% !important;
+        font-weight: bolder;
+        font-size: 14px !important;
+    }
+    .cart {
+        margin-left: 5% !important;
+        padding-top: 29px !important;
+        width: 7% !important;
+    }
+    .cart-resized {
+        width: 1.2% !important;
+    }
+    .user-drop {
+        padding-top: 3%;
+    }
+    .dropbtn {
+        background-color: transparent;
+        color: white;
+        font-weight: 700;
+        font-size: 13px !important;
+        border: none;
+        cursor: pointer;
+        padding-left: 29px !important;
+    }
+
+    .login-button {
+        width: 731px !important;
+    }
+
+    .resized-right {
+        padding-top: 13px !important;
+        left: 704px;
+    }
+
+    .input--style-3 {
+        width: 728px !important;
+        margin-top: 10px !important;
+    }
+
+    .button-style-login {
+        left: 242px;
+        top: 218px;
+    }
+    .button-style {
+        left: 401px;
+        top: 216px;
+    }
     .main-banner-w3ls {
         height: 21vh !important;
     }
@@ -1257,7 +1590,7 @@ button.contact-submit {
     }
 
     .main-banner-w3ls {
-        border-radius: 0 0 120px 0;
+        border-radius: 0 0 0 0;
     }
 
     img.fashion-img {
@@ -1274,12 +1607,121 @@ button.contact-submit {
     }
 
     p.banner-para-wthree {
-        font-size: 14px;
+        font-size: 24px;
     }
 }
 
 
 @media(max-width: 768px) {
+    .black {
+        color: #fff !important;
+    }
+    .main-banner-w3ls2 {
+        height: 41vh !important;
+    }
+
+    
+    .button-style-login {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #9F59BE;
+        background: #9F59BE;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 243px;
+        top: 218px;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+    }
+
+    .button-style {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #fff;
+        background: transparent;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 407px;
+        top: 216px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;
+    }
+    #store {
+        display: none;
+    }
+
+    .copyright {
+        color: #fff !important;
+        padding-right: 83px;
+        padding-top: 16px;
+    }
+    .number {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    .pad-right {
+        padding-bottom: 38px;
+    }
+    .footer-up {
+        display: none;
+    }
+     .owl-item {
+      width: 277px !important;
+    }
+
+    .imaging {
+        width: 279px !important;
+        height: 204px !important;
+        border-radius: 20px !important;
+    }
+
+    .widthy {
+        width: 279px !important;
+        border: none !important;
+        background: #F2F2F2;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        padding-right: 13px;
+        padding-bottom: 2px;
+        width: 25%;
+    }
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
     .main-banner-w3ls {
         height: 21vh !important;
     }
@@ -1290,6 +1732,9 @@ button.contact-submit {
 }
 
 @media(max-width: 736px) {
+    .black {
+        color: #fff !important;
+    }
     .price-right {
         padding: 5em 10em;
     }
@@ -1313,12 +1758,10 @@ button.contact-submit {
     }
 
     .main-banner-w3ls {
-        min-height: 680px;
+        min-height: 403px;
     }
 
-    footer {
-        border-radius: 0 150px 0 0;
-    }
+    
 }
 
 @media(max-width: 667px) {
@@ -1327,7 +1770,7 @@ button.contact-submit {
     }
 
     p.banner-para-wthree {
-        font-size: 13px;
+        font-size: 25px;
     }
 
     .button-style {
@@ -1345,6 +1788,9 @@ button.contact-submit {
 }
 
 @media(max-width: 640px) {
+    .black {
+        color: #fff !important;
+    }
     .price-right {
         padding: 5em 8em;
     }
@@ -1363,6 +1809,87 @@ button.contact-submit {
 }
 
 @media(max-width: 600px) {
+
+    .push-contact {
+        padding-bottom: 57px !important;
+    }
+    .firstpic {
+        width: 524px !important;
+        padding-top: 3% !important;
+        padding-bottom: 10% !important;
+        padding-right: 29% !important;
+    }
+    .black {
+        color: #fff !important;
+    }
+    .button-image {
+        position: absolute;
+        right: 1px;
+        bottom: 57px;
+        cursor: pointer;
+        padding: 5px 8px;
+        border: none;
+        color: #fff !important;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid #9F59BE;
+        background: #9F59BE;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+        margin-right: 20px;
+        margin-top: 24px;
+    }
+    .rating-amount {
+        position: absolute;
+        font-size: 12px;
+        bottom: 6px;
+        left: 173px;
+    }
+
+    .main-banner-w3ls2 {
+        height: 58vh !important;
+    }
+
+    .cart-span {
+        right: 46.6% !important;
+        top: 85.6% !important;
+        font-weight: bolder;
+        font-size: 14px !important;
+    }
+
+    .input--style-3 {
+        width: 617px !important;
+        margin-top: 10px !important;
+
+    }
+
+    .login-button {
+        width: 622px !important;
+    }
+
+    .input--style-3 {
+        width: 584px !important;
+        margin-top: 10px !important;
+    }
+
+    .resized-right {
+        padding-top: 13px !important;
+        left: 591px;
+    }
+
+    .button-style {
+        left: 339px;
+    }
+    .button-style-login {
+  
+        left: 182px;
+    }
+
+    p.banner-para-wthree {
+        font-size: 19px;
+        left: 196px;
+    }
     .footer-title {
         font-size: 22px;
     }
@@ -1377,6 +1904,9 @@ button.contact-submit {
 }
 
 @media(max-width: 568px) {
+    .black {
+        color: #fff !important;
+    }
     .gallery-agile-grids {
         text-align: center;
     }
@@ -1392,11 +1922,12 @@ button.contact-submit {
 
 @media(max-width: 480px) {
     h3.title-wthree span {
-        font-size: 32px;
+        font-size: 23px;
     }
 
     h3.title-wthree {
         font-size: 14px;
+        padding-top: 29px;
     }
 
     p.para-bottom-wthree {
@@ -1457,22 +1988,32 @@ button.contact-submit {
     }
 
     a.navbar-brand {
-        font-size: 34px;
+        font-size: 75px;
     }
 
     a.navbar-brand img {
-        top: -3px;
-        left: 16px;
-        width: 40%;
+        /* top: -3px; */
+        /* left: 16px; */
+        width: 512px;
     }
 }
 
 @media(max-width: 440px) {
-    .main-banner-w3l-2 {
-        min-height: 160px;
-        background-position: 0;
+    .black {
+        color: #fff !important;
     }
 
+    .main-banner-w3ls2 {
+        height: 81vh !important;
+    }
+
+    
+    .pad-circle {
+        padding-top: 23px !important;
+        padding-left: 0 !important;
+        margin-right: 31px !important;
+       
+    }
     /* team */
     .caption {
         width: 86.5%;
@@ -1485,6 +2026,198 @@ button.contact-submit {
 }
 
 @media(max-width: 414px) {
+
+    .greyish-bg {
+        height: 35vh !important;
+    }
+    .firstpic {
+        width: 321px !important;
+        padding-top: 3% !important;
+        padding-bottom: 10% !important;
+        padding-right: 29% !important;
+    }
+    .black {
+        color: #fff !important;
+    }
+
+    .butt-studio {
+        width: 223px !important;
+    }
+
+    .styles_overlay__CLSq- {
+        width: 94% !important;
+        background: none;
+    }
+
+    .dropdown-content {
+        left: 29% !important;
+    }
+
+    .cart-span {
+        right: 44% !important;
+        top: 85.3% !important;
+        font-weight: bolder;
+        font-size: 14px !important;
+    }
+    .cart {
+        margin-left: 8% !important;
+        padding-top: 28px !important;
+        width: 10% !important;
+    }
+    .cart-resized {
+        width: 2.2% !important;
+    }
+    .user-drop {
+        padding-top: 4%;
+    }
+
+    .dropbtn {
+        background-color: transparent;
+        color: white;
+        font-weight: 700;
+        font-size: 13px !important;
+        border: none;
+        cursor: pointer;
+        padding-left: 29px !important;
+    }
+    .resized-right {
+        padding-top: 13px !important;
+        left: 339px;
+    }
+
+    .login-button {
+        width: 361px !important;
+    }
+    .input--style-3 {
+        width: 363px !important;
+        margin-top: 10px !important;
+    }
+
+    #store {
+        display: none;
+    }
+
+    .copyright {
+        color: #fff !important;
+        padding-right: 83px;
+        padding-top: 16px;
+    }
+    .number {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    .pad-right {
+        padding-bottom: 38px;
+    }
+    .footer-up {
+        display: none;
+    }
+     .owl-item {
+      width: 277px !important;
+    }
+
+    .imaging {
+        width: 279px !important;
+        height: 204px !important;
+        border-radius: 20px !important;
+    }
+
+    .widthy {
+        width: 279px !important;
+        border: none !important;
+        background: #F2F2F2;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        padding-right: 13px;
+        padding-bottom: 2px;
+        width: 25%;
+    }
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
+    .button-style-login {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #9F59BE;
+        background: #9F59BE;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 64px;
+        top: 218px;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+    }
+
+    .button-style {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #fff;
+        background: transparent;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 225px;
+        top: 193px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;
+    }
+
+    p.banner-para-wthree {
+        font-size: 31px;
+        left: 84px;
+    }
+
+    .cart2 {
+        position: relative !important;
+        width: 8% !important;
+        right: 0 !important;
+        padding-top: 15px;
+    }
+    .fix-it {
+        display: none;
+    }
+
+    .nav-styling {
+        padding-right: 1%;
+        padding-left: 1%;
+    
+    }
+    .search {
+        display: none;
+    }
     .button-style {
         font-size: 13px;
         margin-top: 2em !important;
@@ -1529,13 +2262,14 @@ button.contact-submit {
     p.banner-para-wthree {
         margin: 1em 0 0 !important;
     }
-
-    footer {
-        border-radius: 0 120px 0 0;
-    }
 }
 
 @media(max-width: 384px) {
+    .black {
+        color: #fff !important;
+    }
+
+    
     .price-right {
         padding: 4em 3em;
     }
@@ -1566,7 +2300,8 @@ button.contact-submit {
     }
 
     p.banner-para-wthree {
-        font-size: 12px;
+        font-size: 19px;
+        left: 64px;
     }
 
     img.fashion-img {
@@ -1576,6 +2311,178 @@ button.contact-submit {
 }
 
 @media(max-width: 375px) {
+    .black {
+        color: #fff !important;
+    }
+    .main-banner-w3ls2 {
+        height: 95vh !important;
+    }
+    
+    .pad-circle {
+        padding-top: 23px !important;
+        padding-left: 0 !important;
+        margin-right: 31px !important;
+       
+    }
+.cart-span {
+    right: 44.1% !important;
+    top: 86% !important;
+    font-weight: bolder;
+    font-size: 13px !important;
+}
+
+    
+    .login-button {
+        width: 331px !important;
+    }
+
+    .resized-right {
+        left: 295px;
+        padding-top: 13px !important;
+        /* right: -77px !important; */
+    }
+    .mobile-login {
+        display: none;
+    }
+    .input--style-3 {
+        width: 331px !important;
+        margin-top: 10px !important;
+    }
+
+    .contain-it {
+        width: 98%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 1;
+    }
+
+    #store {
+        display: none;
+    }
+
+    .copyright {
+        color: #fff !important;
+        padding-right: 83px;
+        padding-top: 16px;
+    }
+    .number {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    .pad-right {
+        padding-bottom: 38px;
+    }
+    .footer-up {
+        display: none;
+    }
+     .owl-item {
+      width: 277px !important;
+    }
+
+    .imaging {
+        width: 279px !important;
+        height: 204px !important;
+        border-radius: 20px !important;
+    }
+
+    .widthy {
+        width: 279px !important;
+        border: none !important;
+        background: #F2F2F2;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        padding-right: 13px;
+        padding-bottom: 2px;
+        width: 25%;
+    }
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
+    .button-style-login {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #9F59BE;
+        background: #9F59BE;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 27px;
+        top: 218px;
+        border: 1px solid #9F59BE;
+        border-radius: 30px;
+    }
+
+    .button-style {
+        padding: 11px 28px;
+        border: none;
+        color: #fff !important;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid #fff;
+        background: transparent;
+        position: absolute;
+        width: 133px;
+        height: 45px;
+        left: 211px;
+        top: 193px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;
+    }
+
+    p.banner-para-wthree {
+        font-size: 25px;
+        left: 64px;
+    }
+
+    .cart2 {
+        position: relative !important;
+        width: 8% !important;
+        right: 0 !important;
+        padding-top: 15px;
+    }
+    .fix-it {
+        display: none;
+    }
+
+    .nav-styling {
+        padding-right: 1%;
+        padding-left: 1%;
+    
+    }
+    .search {
+        display: none;
+    }
     .back-icon-wthree {
         padding: 2.5em !important;
     }
@@ -1599,6 +2506,107 @@ button.contact-submit {
 }
 
 @media(max-width: 320px) {
+    .about {
+        height: 14vh !important;
+    }
+    .firstpic {
+        width: 277px !important;
+        padding-top: 3% !important;
+        padding-bottom: 10% !important;
+        padding-right: 29% !important;
+    }
+    .black {
+        color: #fff !important;
+    }
+    .main-banner-w3ls2 {
+        height: 107vh !important;
+    }
+
+    .cart-span {
+        right: 44.1% !important;
+        top: 86.6% !important;
+        font-weight: bolder;
+        font-size: 12px !important;
+    }
+    .login-button {
+        width: 291px !important;
+    }
+
+    .resized-right {
+        padding-top: 13px !important;
+        left: 261px;
+    }
+
+    .input--style-3 {
+        width: 289px !important;
+        margin-top: 10px !important;
+    }
+    #store {
+        display: none;
+    }
+
+    .copyright {
+        color: #fff !important;
+        padding-right: 83px;
+        padding-top: 16px;
+    }
+    .number {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    .pad-right {
+        padding-bottom: 38px;
+    }
+    .footer-up {
+        display: none;
+    }
+     .owl-item {
+      width: 277px !important;
+    }
+
+    .imaging {
+        width: 279px !important;
+        height: 204px !important;
+        border-radius: 20px !important;
+    }
+
+    .widthy {
+        width: 279px !important;
+        border: none !important;
+        background: #F2F2F2;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        padding-right: 13px;
+        padding-bottom: 2px;
+        width: 25%;
+    }
+
+    .beatstore {
+        margin-right: 26px !important;
+        padding: 10px 14px !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+        border: 2px solid #fff;
+        background: #fff;
+        border: 1px solid #fff;
+        border-radius: 30px;
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .headphone {
+        padding-right: 13px;
+        width: 25%;
+        padding-bottom: 2px;
+    }
+
+    .icon-drop {
+        padding-left: 8px;
+        width: 16%;
+    }
     .back-icon-wthree {
         padding: 2em !important;
     }
@@ -1806,7 +2814,7 @@ border-radius: 20px;
 }
 
 .imaging {
- width: 280px !important;
+ width: 280px ;
 height: 198px;
 border-radius: 20px;
 }
@@ -1956,15 +2964,16 @@ color: #FFFFFF;
 }
 
 .pad-login {
-    padding-top: 4px !important;
-    padding-left: 35%;
+    padding-top: 99px !important;
 }
 
 .pad-account {
     padding-top: 30px !important;
 }
 
-
+.contain-it {
+    width: 98%;
+}
 
 .login-right {
         padding-right: 10px !important;
@@ -1987,8 +2996,10 @@ padding-top: 20px;
 .resized-right {
     padding-top: 20px;
     position: absolute;
-    right: 170px;
+    right: 123px;
 }
+
+
 
 .resized-p {
     font-size: 12px;
@@ -2221,7 +3232,7 @@ color: #9F59BE;
   }
   
   .black {
-    color: #000 !important;
+    color: #000 ;
 }
   
 .about {
@@ -2276,10 +3287,14 @@ color: #9F59BE;
 }
 
 .first-layer {
-    padding-top: 3%;
+    padding: 5% 10% 5% 10%;
     background-color: #F9F9F9;
 }
 
+.second-layer {
+    padding: 5% 10% 5% 10%;
+    background-color: #fff;
+}
 .aboutparagraph {
     width: 83%;
     font-size: 24px;
@@ -2447,7 +3462,6 @@ padding-bottom: 8px;
     border: none;
     background: #FFFFFF;
     border-radius: 10px;
-    padding-right: 147px;
     padding-bottom: 13px;
     margin: 10px;
     width: 93% !important;
@@ -2457,7 +3471,6 @@ padding-bottom: 8px;
     border: none;
     background: #FFFFFF;
     border-radius: 10px;
-    padding-right: 452px;
     padding-bottom: 123px;
     margin: 10px;
     width: 100% !important;
@@ -2512,7 +3525,7 @@ input:focus {
 .cart-span {
     color: rgb(159, 89, 190);
     position: absolute;
-    right: 103px;
+    right: 105px;
     top: 29px;
     font-weight: bolder;
     font-size: 15px;
@@ -2569,7 +3582,6 @@ button.styles_closeButton__20ID4:focus{
     background-color: transparent;
     color: white;
     font-weight: 700;
-    padding: 9px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -2970,4 +3982,31 @@ input[type="radio"] {
     border: none;
     margin-top: 20px;
     cursor: pointer;
+}
+
+span#_warning {
+    padding-top: 17px;
+}
+
+.pad-register {
+    padding-top: 27px !important;
+}
+
+#_warning-reg {
+    padding-top: 14px;
+}
+
+#_danger-reg {
+    padding-top: 14px;
+}
+
+
+.form-width {
+    width: 100%;
+}
+
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: 10px;
+    margin-bottom: 26px;
 }

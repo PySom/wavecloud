@@ -46,12 +46,17 @@ export default class Login extends Component {
            this.setState({...this.state, error:userdata, Authentication:true});
         })
     
-        .catch(err => console.log(err))
-    
-       
-       
-        
-      }
+        .catch(err => {
+            console.log(err)
+            const warn = document.getElementById("_warning");
+            if(warn.classList.contains("d-none")){
+              warn.classList.add("d-block");
+            }
+            else {
+              warn.classList.remove("d-none") ;
+            }
+          })
+        }
 
       authentication() {
           if(this.state.Authentication === true ) {
@@ -71,8 +76,15 @@ export default class Login extends Component {
           
             <>
             {auth ? <Redirect to = {{pathname: "/"}}/> : ( 
-                  <div className="background-image">
-                  <div className="d-inline  pad-login">
+                <div className="contain-it">
+                    <div className="row">
+                        <div className="col-md-6 mobile-login">
+                        <div className="background-image">
+                  
+                        </div>
+                        </div>
+                        <div className="col-md-6 col-12 pad-login">
+                        <div className="d-inline">
                      <h3 className="login">Login</h3>
                      <div className="d-flex">
                                   <img className="login-right" src="images/loginfacebook.svg"/>
@@ -83,7 +95,7 @@ export default class Login extends Component {
                       <div className="resized">
                           <p className="resized-p">or use your account </p>
                       </div>
-                      <form method="POST" onSubmit={this.submitForm}>  
+                      <form  className="form-width" method="POST" onSubmit={this.submitForm}>  
                        <div className="pad-account">
                        <div className="input-group d-inline">
                            <h3 className="input-box">Email</h3>  
@@ -116,11 +128,20 @@ export default class Login extends Component {
                     
       
                        </div>
+                       <div className="reg-width">
+                       <span id="_warning" className="d-none text-danger text-center">Username or Password not correct</span>
+                          
+                       </div>
                    </form>
                        
                       
                   </div>
-               </div>
+            
+                      </div>
+                    </div>
+                </div>
+                
+        
        
         
             )}
