@@ -1173,6 +1173,35 @@ button.contact-submit {
 }
 
 @media(max-width: 1024px) {
+
+    .underline {
+        left: -13px !important;
+        width: 400px !important;
+    }
+
+    .search-input {
+        left: 29% !important;
+        width: 400px !important;
+    }
+
+    .width-studio {
+        width: 286px !important;
+    }
+
+    .smallpic {
+        width: 9% !important;
+    }
+
+    .volume-bg {
+        flex-basis: 23% !important;
+    }
+
+    .download {
+        width: 3% !important;
+        padding-left: 4px !important;
+        cursor: pointer;
+        margin-left: 15px !important;
+    }
     .greyish-bg {
         height: 25vh !important; 
     }
@@ -1498,6 +1527,29 @@ button.contact-submit {
 
 @media(max-width: 800px) {
 
+    .move-studio {
+        padding-left: 76px ;
+}
+
+    .width-studio {
+        width: 267px !important;
+    }
+
+    .smallpic {
+        width: 9% !important;
+    }
+
+    .volume-bg {
+        flex-basis: 23% !important;
+    }
+
+    .download {
+        width: 3% !important;
+        padding-left: 4px !important;
+        cursor: pointer;
+        margin-left: 15px !important;
+    }
+
     .firstpic {
         width: 384px !important;
         padding-top: 3% !important;
@@ -1608,6 +1660,7 @@ button.contact-submit {
 
     p.banner-para-wthree {
         font-size: 24px;
+        left: 311px !important;
     }
 }
 
@@ -1810,6 +1863,35 @@ button.contact-submit {
 
 @media(max-width: 600px) {
 
+    
+    .move-image {
+        padding-left: 0 !important;
+    }
+
+    .studio-amount {
+        bottom: -29px !important;
+    }
+
+    .move-studio {
+        padding-top: 21px !important;
+        padding-left: 0 !important;
+    }
+
+    .smallpic {
+        width: 9% !important;
+    }
+
+    .volume-bg {
+        flex-basis: 23% !important;
+    }
+
+    .download {
+        width: 5% !important;
+        padding-left: 4px !important;
+        cursor: pointer;
+        margin-left: 15px !important;
+    }
+
     .push-contact {
         padding-bottom: 57px !important;
     }
@@ -1887,6 +1969,7 @@ button.contact-submit {
     }
 
     p.banner-para-wthree {
+        left: 212px !important;
         font-size: 19px;
         left: 196px;
     }
@@ -2026,6 +2109,29 @@ button.contact-submit {
 }
 
 @media(max-width: 414px) {
+
+    p.banner-para-wthree {
+        left: 95px !important;
+    }
+
+    .main-studio {
+        padding-left: 15px !important;
+    }
+
+    .move-image {
+        padding-left: 30px !important;
+    }
+
+    .move-studio {
+        padding-left: 30px !important;
+    }
+
+    .underline {
+        left: -50px !important;
+    }
+    .search-input {
+        left: 17% !important;
+    }
 
     .greyish-bg {
         height: 35vh !important;
@@ -2311,6 +2417,53 @@ button.contact-submit {
 }
 
 @media(max-width: 375px) {
+
+    .studio-amount {
+        bottom: -29px !important;
+    }
+
+    .studio-name {
+        padding-top: 18px !important;
+    }
+
+    .width-studio {
+        width: 281px !important;
+        height: 200px !important;
+    }
+
+    .underline {
+        left: -16px !important;
+        width: 337px!important;
+    }
+
+    .search-input {
+        width: 337px !important;
+        left: 28% !important;
+    }
+
+    .pauseplay {
+        height: 24px !important;
+    }
+
+    .leftright {
+        height: 15px !important;
+    }
+    #audio-time {
+        font-size: 12px !important;
+    }
+
+    .volume {
+        height: 14px !important;
+    }
+    .volume-bg {
+        flex-basis: 62% !important;
+    }
+    .download {
+        width: 5% !important;
+        padding-left: 4px !important;
+        cursor: pointer;
+        margin-left: 15px !important;
+    }
     .black {
         color: #fff !important;
     }
@@ -2462,7 +2615,7 @@ button.contact-submit {
 
     p.banner-para-wthree {
         font-size: 25px;
-        left: 64px;
+        left: 66px !important;
     }
 
     .cart2 {
@@ -2506,6 +2659,14 @@ button.contact-submit {
 }
 
 @media(max-width: 320px) {
+
+    p.banner-para-wthree {
+        left: 49px !important;
+    }
+    .underline {
+        left: 11px !important;
+        width: 282px !important;
+    }
     .about {
         height: 14vh !important;
     }
