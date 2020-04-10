@@ -150,10 +150,10 @@ const searchStudio = ({target: {value}}) => {
 	<h2 className="main-studio">Studios</h2>
 {search.map((bd) => (
 	 <div className="row spacing">
-	 <div className="col-md-4">
+	 <div className="col-md-4 move-image">
       <img className="width-studio" src={bd.image}/>
 	 </div>
-	 <div className="col-md-8">
+	 <div className="col-md-8 move-studio">
         <h3 className="studio-name"> {bd.name}</h3>
 		<h1 className="studio-location">{bd.location}</h1>
 		<p className="studio-description">{bd.description}</p>
