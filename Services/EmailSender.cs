@@ -12,8 +12,8 @@ namespace WaveCloud.Services
 	public class EmailSender : IEmailSender
 	{
 		private readonly ILogger<EmailSender> _logger;
-		private const string senderEmail = "nchukumah@infomall.ng";
-		private const string password = "osasere1994$";
+		private const string senderEmail = "";
+		private const string password = "";
 		public EmailSender(ILogger<EmailSender> logger)
 		{
 			_logger = logger;
